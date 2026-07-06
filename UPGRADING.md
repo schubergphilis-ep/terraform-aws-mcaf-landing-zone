@@ -42,7 +42,7 @@ After upgrading, Terraform will plan to **destroy** these now-redundant resource
 
 #### AWS Config S3 bucket
 
-The custom AWS Config S3 bucket (`module.aws_config_s3`) is no longer managed by this module. Instead, the module now automatically discovers and uses the S3 bucket that Control Tower provisions in the logging account (prefixed with `aws-controltower-config-logs-`).
+The custom AWS Config S3 bucket (`module.aws_config_s3`) is no longer managed by this module. Instead, the module now automatically discovers and uses the S3 bucket that Control Tower provisions in the audit account (prefixed with `aws-controltower-config-logs-`).
 
 The old bucket is **not deleted** — a `removed` block ensures Terraform drops it from state while preserving it in AWS. You can delete the old bucket later according to your own data retention policy.
 
