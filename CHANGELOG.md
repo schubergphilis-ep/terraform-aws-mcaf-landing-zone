@@ -1,1238 +1,672 @@
-# CHANGELOG
+# Changelog
 
-All notable changes to this project will automatically be documented in this file.
+All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v10.2.0 - 2026-07-01
+---
 
-### What's Changed
+## [10.2.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v10.1.0...v10.2.0) (2026-07-01)
 
-#### 🚀 Features
 
-* feat: expose enable_additional_eu_regions in baseline settings and update mcaf-account-baseline version ref (#267) @mayur7436
+### 🚀 Features
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v10.1.0...v10.2.0
+* expose enable_additional_eu_regions in baseline settings and update mcaf-account-baseline version ref ([#267](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/267)) ([b284ab4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/b284ab4f6b26d0fb58008656bb9a27ae90cd2458))
 
-## v10.1.0 - 2026-06-26
+## [10.1.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v10.0.1...v10.1.0) (2026-06-26)
 
-### What's Changed
 
-#### 🚀 Features
+### 🚀 Features
 
-* feat: add organization-wide IAM Access Analyzer (#266) @marwinbaumannsbp
-* feat: Add support for a customer managed policy attachment (#264) @fatbasstard
+* add organization-wide IAM Access Analyzer ([#266](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/266)) ([552a825](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/552a825868f5854c9ff2e051906cdb188649e423))
+* Add support for a customer managed policy attachment ([#264](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/264)) ([e3e54d4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/e3e54d4109d5ab5972142cb8ead813cdde74ddca))
 
-#### 🐛 Bug Fixes
+### 🐛 Fixes
 
-* fix: Add permission set name output (#265) @fatbasstard
-* fix: Add the Permission set ARN output (#263) @fatbasstard
+* Add permission set name output ([#265](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/265)) ([171c288](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/171c288a1be87b0b9b69fcec6dc5189ebba32bf1))
+* Add the Permission set ARN output ([#263](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/263)) ([46f8c5b](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/46f8c5bfaf0790a5b8c1578af1c5bbb0a5854c97))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v10.0.1...v10.1.0
+## [10.0.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v10.0.0...v10.0.1) (2026-04-17)
 
-> [!IMPORTANT]
-Ensure the AWS Service Access principal `access-analyzer.amazonaws.com` is enabled in your organization. Use
-[terraform-aws-mcaf-organization](https://registry.terraform.io/modules/schubergphilis/mcaf-organization/aws/latest) version v0.4.0 or higher to ensure this is set.
 
-## v10.0.1 - 2026-04-17
+### 🐛 Fixes
 
-### What's Changed
+* Remove account level security hub configuration ([#261](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/261)) ([971e5b6](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/971e5b6afc48b554160ed865318ca18967c91a79))
+* Increase timeout of the aws_securityhub_configuration_policy_association ([#262](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/262)) ([2c3866f](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/2c3866fe0ba7228b4e909f69cfa3f2abaf934d7b))
 
-#### 🐛 Bug Fixes
+## [10.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v9.2.0...v10.0.0) (2026-04-16)
 
-* fix: Remove account level security hub configuration (#261) @fatbasstard
-* fix: Increase timeout of the aws_securityhub_configuration_policy_association (#262) @fatbasstard
 
-#### 🧺 Miscellaneous
+### ⚠ BREAKING CHANGES
 
-* chore: Bump MCAF modules (#258) @fatbasstard
+* upgrade security hub standards arns to the latest versions ([#259](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/259))
+* Remove deprecated AWS Audit Manager resources from code ([#257](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/257))
+* update AWS Config setup to match Control Tower v4.x ([#256](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/256))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v10.0.0...v10.0.1
+### 🚀 Features
 
-## v10.0.0 - 2026-04-16
+* upgrade security hub standards arns to the latest versions ([#259](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/259)) ([5ab5b77](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/5ab5b772a6a03bde6f74693d7a7b808c1154c0a6))
+* Remove deprecated AWS Audit Manager resources from code ([#257](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/257)) ([54f9012](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/54f9012e81822d3172d570efb1e7dd3d2eddb193))
+* update AWS Config setup to match Control Tower v4.x ([#256](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/256)) ([fe0e737](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/fe0e737f6def6a4187ab416e3139cde89fd4aef4))
 
-### What's Changed
+### 🐛 Fixes
 
-#### 🚀 Features
+* Refactor iam_activity_master log metric filter to support Landing Zone 4.0 ([#255](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/255)) ([6dd2437](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/6dd2437be4114ac8bf406df7d0bb1f94bdf40032))
 
-* feat!: feat!: upgrade security hub standards arns to the latest versions(#259) @marwinbaumannsbp
-* feat!: Remove deprecated AWS Audit Manager resources from code (#257) @marwinbaumannsbp
-* feat!: update AWS Config setup to match Control Tower v4.x (#256) @marwinbaumannsbp
+## [9.2.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v9.1.0...v9.2.0) (2026-04-08)
 
-#### 🐛 Bug Fixes
 
-* fix: Refactor iam_activity_master log metric filter to support Landing Zone 4.0 (#255) @fatbasstard
+### 🚀 Features
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v9.2.0...v10.0.0
+* add support for attaching permission boundaries to permission sets ([#254](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/254)) ([68c55fe](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/68c55fe462a28029e41f06c74c813262caf0273e))
 
-## v9.2.0 - 2026-04-08
+## [9.1.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v9.0.1...v9.1.0) (2026-03-23)
 
-### What's Changed
 
-#### 🚀 Features
+### 🚀 Features
 
-* feat: add support for attaching permission boundaries to permission sets (#254) @skesarkar-schubergphilis
+* Add support for defining AWS account alternate contacts for the 3 core-accounts ([#253](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/253)) ([e39a721](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/e39a7218ec6a251e4f9c95351f68726dfc0af191))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v9.1.0...v9.2.0
+## [9.0.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v9.0.0...v9.0.1) (2025-11-13)
 
-## v9.1.0 - 2026-03-23
 
-### What's Changed
+### 🐛 Fixes
 
-#### 🚀 Features
+* update the management and audit kms key policy to allow encryption of the ssm automation log group ([#252](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/252)) ([e905352](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/e9053524dd45e8e8ccea03d08f7be8524c3c53fd))
 
-* feat: Add support for defining AWS account alternate contacts for the 3 core-accounts (#253) @angautam
+## [9.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v8.2.0...v9.0.0) (2025-11-13)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v9.0.1...v9.1.0
 
-## v9.0.1 - 2025-11-13
+### ⚠ BREAKING CHANGES
 
-### What's Changed
+* consolidate security baseline configuration related variables & multi-region KMS ([#251](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/251))
 
-#### 🐛 Bug Fixes
+### 🚀 Features
 
-* fix: update the management and audit kms key policy to allow encryption of the ssm automation log group (#252) @marwinbaumannsbp
+* consolidate security baseline configuration related variables & multi-region KMS ([#251](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/251)) ([a80065a](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/a80065a3f74cc6d0e403921041e624de5c93d105))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v9.0.0...v9.0.1
+## [8.2.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v8.1.0...v8.2.0) (2025-11-03)
 
-## v9.0.0 - 2025-11-13
 
-### What's Changed
+### 🚀 Features
 
-#### 🚀 Features
+* optimize allowed regions SCP ([#250](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/250)) ([13c68b4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/13c68b4899ec3bdef0b7af269c9b8d23b5392b30))
 
-* feat!: consolidate security baseline configuration related variables & multi-region KMS (#251) @marwinbaumannsbp
+## [8.1.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v8.0.0...v8.1.0) (2025-10-28)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v8.2.0...v9.0.0
 
-## v8.2.0 - 2025-11-03
+### 🚀 Features
 
-### What's Changed
+* use mcaf-account-baseline module for security baselines ([#249](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/249)) ([034b0ed](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/034b0edc89c7e0656a436d05b0df28e96a227757))
 
-#### 🚀 Features
+## [8.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v7.1.2...v8.0.0) (2025-10-27)
 
-* feature: optimize allowed regions SCP (#250) @marwinbaumannsbp
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v8.1.0...v8.2.0
+### ⚠ BREAKING CHANGES
 
-## v8.1.0 - 2025-10-28
+* Refactor Inspector setup to multi-region module structure ([#248](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/248))
+* Refactor GuardDuty setup to multi-region module structure ([#247](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/247))
 
-### What's Changed
+### 🚀 Features
 
-#### 🚀 Features
+* Refactor Inspector setup to multi-region module structure ([#248](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/248)) ([053dde3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/053dde3ba06b1f769b94f94a42a1788a4c2f6f0b))
+* Refactor GuardDuty setup to multi-region module structure ([#247](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/247)) ([98765c4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/98765c49d1f4de09aa2295ed4af4fa66bae539ef))
 
-* feat: use mcaf-account-baseline module for security baselines (#249) @marwinbaumannsbp
+## [7.1.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v7.1.1...v7.1.2) (2025-10-21)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v8.0.0...v8.1.0
 
-## v8.0.0 - 2025-10-27
+### 🐛 Fixes
 
-### What's Changed
+* configure core-management aws config recorder to the sns topic in the same region ([#246](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/246)) ([797050c](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/797050c90bddc34afbb7d8c731cc69f5ba7ab91b))
 
-#### 🚀 Features
+## [7.1.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v7.1.0...v7.1.1) (2025-10-20)
 
-* feat!: Refactor Inspector setup to multi-region module structure (#248) @marwinbaumannsbp
-* feat!: Refactor GuardDuty setup to multi-region module structure (#247) @marwinbaumannsbp
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v7.1.2...v8.0.0
+### 🐛 Fixes
 
-## v7.1.2 - 2025-10-21
+* bug: aws config recorder, loop over the regions ([#245](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/245)) ([e404caa](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/e404caabf4174ec8ce11d75fb744ffe4b13fb6ae))
 
-### What's Changed
+## [7.1.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v7.0.3...v7.1.0) (2025-10-20)
 
-#### 🐛 Bug Fixes
 
-* fix: configure core-management aws config recorder to the sns topic in the same region (#246) @marwinbaumannsbp
+### 🚀 Features
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v7.1.1...v7.1.2
+* ensure aws config is enabled in the core-management account in all enabled regions ([#244](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/244)) ([74aad4e](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/74aad4e0a4dffeb412b82ae01a10e9190506a8d3))
 
-## v7.1.1 - 2025-10-20
+## [7.0.3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v7.0.2...v7.0.3) (2025-10-20)
 
-### What's Changed
 
-#### 🐛 Bug Fixes
+### 🐛 Fixes
 
-* bug: aws config recorder, loop over the regions (#245) @marwinbaumannsbp
+* all aws v6 related deprecation warnings & missing module required providers warning ([#243](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/243)) ([9743dcd](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/9743dcdce08ee8b0bcc643b63e5014ac35901402))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v7.1.0...v7.1.1
+## [7.0.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v7.0.1...v7.0.2) (2025-10-17)
 
-## v7.1.0 - 2025-10-20
 
-### What's Changed
+### 🐛 Fixes
 
-#### 🚀 Features
+* deprecated argument region in aws_config_aggregate_authorization ([#242](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/242)) ([e38f5fe](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/e38f5fe14a747f6bc5b12bab68badd7a3c0444c8))
 
-* feature: ensure aws config is enabled in the core-management account in all enabled regions (#244) @marwinbaumannsbp
+## [7.0.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v7.0.0...v7.0.1) (2025-08-14)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v7.0.3...v7.1.0
 
-## v7.0.3 - 2025-10-20
+### 🐛 Fixes
 
-### What's Changed
+* deprecated data.aws_region.current.name ([#241](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/241)) ([f3111a3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/f3111a386143c0e7bdd7094f484e0bd5b1aafece))
 
-#### 🐛 Bug Fixes
+## [7.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.8.0...v7.0.0) (2025-08-12)
 
-* fix: all aws v6 related deprecation warnings & missing module required providers warning (#243) @marwinbaumannsbp
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v7.0.2...v7.0.3
+### 🚀 Features
 
-## v7.0.2 - 2025-10-17
+* breaking: support multi region deploys ([#240](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/240)) ([e8c9e08](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/e8c9e08c7359a755896b2e70de2b6fe343e9b0ea))
 
-### What's Changed
+## [6.8.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.7.1...v6.8.0) (2025-06-30)
 
-#### 🐛 Bug Fixes
 
-* fix: deprecated argument region in aws_config_aggregate_authorization (#242) @mlflr
+### 🚀 Features
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v7.0.1...v7.0.2
+* add required control tower permissions to the management account kms key ([#238](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/238)) ([2e9b34e](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/2e9b34e20ddc6d5ece4ff732af8ce6f49f661bcd))
+* Add conditional support for AWS CDK and Edge service actions in us-east-1 ([#237](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/237)) ([7fe9454](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/7fe9454a16a396e58fdca83066f4a391dd14876e))
 
-## v7.0.1 - 2025-08-14
+## [6.7.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.7.0...v6.7.1) (2025-06-18)
 
-### What's Changed
 
-#### 🐛 Bug Fixes
+### 🐛 Fixes
 
-* fix: deprecated data.aws_region.current.name (#241) @mlflr
+* add validation to the region variable to prevent faulty configuration ([#236](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/236)) ([5a5dee3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/5a5dee358ac9fc142f2639e00eb72104c7494937))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v7.0.0...v7.0.1
+## [6.7.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.6.5...v6.7.0) (2025-06-17)
 
-## v7.0.0 - 2025-08-12
 
-### What's Changed
+### 🚀 Features
 
-#### 🚀 Features
+* add actions for Security lake s3 replication for us-east-1 ([#234](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/234)) ([1ad642a](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/1ad642a6301d8ab1ac689018ae90a6c2fb6789f1))
 
-* breaking: support multi region deploys (#240) @carlovoSBP
+## [6.6.5](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.6.4...v6.6.5) (2025-06-16)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.8.0...v7.0.0
 
-## v6.8.0 - 2025-06-30
+### 🐛 Fixes
 
-### What's Changed
+* allow more SSM read ops ([#235](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/235)) ([61c6e8c](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/61c6e8ccdc005d5f79a9bc066fd0b95e092b08cf))
 
-#### 🚀 Features
+## [6.6.4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.6.3...v6.6.4) (2025-06-13)
 
-* feature: add required control tower permissions to the management account kms key (#238) @marwinbaumannsbp
-* feature: Add conditional support for AWS CDK and Edge service actions in us-east-1 (#237) @marwinbaumannsbp
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.7.1...v6.8.0
+### 🐛 Fixes
 
-## v6.7.1 - 2025-06-18
+* bug: add iac specific actions that need to be allowed ([#233](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/233)) ([2475b41](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/2475b41fd54f7214bc2fdee2d8252a6f942f3989))
 
-### What's Changed
+## [6.6.3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.6.2...v6.6.3) (2025-06-13)
 
-#### 🐛 Bug Fixes
 
-* fix: add validation to the region variable to prevent faulty configuration (#236) @marwinbaumannsbp
+### 🐛 Fixes
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.7.0...v6.7.1
+* bug: rewrite s3:ListBuckets to add s3:ListBucket ([#232](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/232)) ([a09ed72](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/a09ed72c07f384b342792780c7f450ac43396308))
 
-## v6.7.0 - 2025-06-17
+## [6.6.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.6.1...v6.6.2) (2025-06-12)
 
-### What's Changed
 
-#### 🚀 Features
+### 🐛 Fixes
 
-* feature: add actions for Security lake s3 replication for us-east-1 (#234) @mayur7436
+* bug: add s3:ListBuckets to the global services actions ([#231](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/231)) ([5ae86c2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/5ae86c26b69635165cc3af1c49428fd074c0d72d))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.6.5...v6.7.0
+## [6.6.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.6.0...v6.6.1) (2025-06-12)
 
-## v6.6.5 - 2025-06-16
 
-### What's Changed
+### 🐛 Fixes
 
-#### 🐛 Bug Fixes
+* bug: add ssm:GetPar* to the global services actions to be able to deploy global services using AWS CDK ([#230](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/230)) ([b83c2bb](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/b83c2bb8c1b79b603c663509c4ce3c153aabcfab))
 
-* fix: allow more SSM read ops (#235) @shoekstra
+## [6.6.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.5.0...v6.6.0) (2025-06-10)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.6.4...v6.6.5
 
-## v6.6.4 - 2025-06-13
+### 🚀 Features
 
-### What's Changed
+* add a policy to opt out of all AI services ([#229](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/229)) ([ade8455](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/ade8455d149f842201d29ce6df186392aec2c65d))
 
-#### 🐛 Bug Fixes
+## [6.5.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.4.0...v6.5.0) (2025-06-02)
 
-* bug: add iac specific actions that need to be allowed (#233) @jorrite
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.6.3...v6.6.4
+### 🚀 Features
 
-## v6.6.3 - 2025-06-13
+* Add per-region service exceptions and refactor allowed_regions SCP generation ([#227](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/227)) ([9b6048e](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/9b6048ee5a57969698bc0b79e44358104c88b624))
 
-### What's Changed
+## [6.4.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.3.1...v6.4.0) (2025-04-24)
 
-#### 🐛 Bug Fixes
 
-* bug: rewrite s3:ListBuckets to add s3:ListBucket (#232) @jorrite
+### 🚀 Features
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.6.2...v6.6.3
+* allow for the exclusion of member accounts in AWS Inspector ([#226](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/226)) ([94f182b](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/94f182bc95df7cf2e9c28b0a87b089b069c1ce51))
 
-## v6.6.2 - 2025-06-12
+## [6.3.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.3.0...v6.3.1) (2025-04-14)
 
-### What's Changed
 
-#### 🐛 Bug Fixes
+### 🐛 Fixes
 
-* bug: add s3:ListBuckets to the global services actions (#231) @marwinbaumannsbp
+* add aws_config_iam_service_linked_role_arn output ([#225](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/225)) ([2be178a](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/2be178a8fe6168f7cc45f157971b83d0f8eee208))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.6.1...v6.6.2
+## [6.3.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.2.0...v6.3.0) (2025-04-14)
 
-## v6.6.1 - 2025-06-12
 
-### What's Changed
+### 🚀 Features
 
-#### 🐛 Bug Fixes
+* move aws config recorder to submodule to be able to re-use this code outside of this module ([#224](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/224)) ([f8982b3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/f8982b39dae1b0e4051d16f0211749647652d647))
 
-* bug: add ssm:GetPar* to the global services actions to be able to deploy global services using AWS CDK (#230) @marwinbaumannsbp
+## [6.2.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.1.0...v6.2.0) (2025-04-08)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.6.0...v6.6.1
 
-## v6.6.0 - 2025-06-10
+### 🚀 Features
 
-### What's Changed
+* option to create datadog api keys ([#222](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/222)) ([a23b999](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/a23b999ecc1e8f3e6ad6baa56cbbd12dacd7dc55))
 
-#### 🚀 Features
+## [6.1.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.0.1...v6.1.0) (2025-04-04)
 
-* feature: add a policy to opt out of all AI services (#229) @angautam
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.5.0...v6.6.0
+### 🚀 Features
 
-## v6.5.0 - 2025-06-02
+* Add Organization Policy to deny all regions except for the allowed_regions and us-east-1 ([#223](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/223)) ([88b35ba](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/88b35ba95a4d3e49df8fac1ad812e5debc7b9bc3))
 
-### What's Changed
+## [6.0.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v6.0.0...v6.0.1) (2025-02-20)
 
-#### 🚀 Features
 
-* feature: Add per-region service exceptions and refactor allowed_regions SCP generation (#227) @marwinbaumannsbp
+### 🐛 Fixes
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.4.0...v6.5.0
+* guardduty runtime monitoring configuration to avoid recreation of aws_guardduty_organization_configuration_feature resource on each TF run ([#220](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/220)) ([7b93c49](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/7b93c499d23ab3c7083eb77b0859e3dd85037a80))
 
-## v6.4.0 - 2025-04-24
+## [6.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v5.0.0...v6.0.0) (2025-01-27)
 
-### What's Changed
+## [5.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v4.0.1...v5.0.0) (2024-12-24)
 
-#### 🚀 Features
 
-* feature: allow for the exclusion of member accounts in AWS Inspector (#226) @marwinbaumannsbp
+### 🚀 Features
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.3.1...v6.4.0
+* breaking: Central Security Hub configuration ([#216](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/216)) ([e767916](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/e767916a353ad521208a8dcf093d9977d8f80c5d))
 
-## v6.3.1 - 2025-04-14
+## [4.0.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v4.0.0...v4.0.1) (2024-11-01)
 
-### What's Changed
 
-#### 🧺 Miscellaneous
+### 🐛 Fixes
 
-* fix: add aws_config_iam_service_linked_role_arn output (#225) @marwinbaumannsbp
+* add the option to control the SecurityHub auto enabling behaviour for newly created AWS accounts ([#213](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/213)) ([fa7e905](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/fa7e9050732a7008b788178be6a7b060746aed2c))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.3.0...v6.3.1
+## [4.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.5.2...v4.0.0) (2024-10-28)
 
-## v6.3.0 - 2025-04-14
 
-### What's Changed
+### 🚀 Features
 
-#### 🚀 Features
+* breaking: update GuardDuty to support runtime monitoring ([#210](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/210)) ([265f3bf](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/265f3bf85ac97a35a76f4d8d0b59758c164bf5c0))
 
-* feature: move aws config recorder to submodule to be able to re-use this code outside of this module (#224) @marwinbaumannsbp
+## [3.5.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.5.1...v3.5.2) (2024-10-11)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.2.0...v6.3.0
 
-## v6.2.0 - 2025-04-08
+### 🐛 Fixes
 
-### What's Changed
+* Remove unused SES forwarder alias ([#212](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/212)) ([0aaea09](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/0aaea090fed517ad609d547f75087925b84e379e))
 
-Note: This release increases the required Terraform version to >= 1.9.0, due to cross-variable validation
+## [3.5.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.5.0...v3.5.1) (2024-10-02)
 
-#### 🚀 Features
 
-* feat: option to create datadog api keys (#222) @mlflr
+### 🐛 Fixes
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.1.0...v6.2.0
+* bump Datadog module to one with fixed dependencies ([#211](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/211)) ([84d69a8](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/84d69a8eea0c7038f222f414a8e620f5ea672647))
 
-## v6.1.0 - 2025-04-04
+## [3.5.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.4.0...v3.5.0) (2024-09-10)
 
-### What's Changed
 
-#### 🚀 Features
+### 🚀 Features
 
-* feature: Add Organization Policy to deny all regions except for the allowed_regions and us-east-1 (#223) @sbkg0002
+* update dependencies for security findings ([#209](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/209)) ([c0db67f](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/c0db67f5a1a0597365dd50458e38c88c9667c9b3))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.0.1...v6.1.0
+## [3.4.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.3.0...v3.4.0) (2024-08-12)
 
-## v6.0.1 - 2025-02-20
 
-### What's Changed
+### 🐛 Fixes
 
-#### 🐛 Bug Fixes
+* bug: encrypt the audit manager reports bucket using KMS ([#208](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/208)) ([a53318e](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/a53318e50400d5fbd339f11789620bf6b0f02b8d))
 
-* fix: guardduty runtime monitoring configuration to avoid recreation of aws_guardduty_organization_configuration_feature resource on each TF run  (#220) @skesarkar-schubergphilis
+## [3.3.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.2.5...v3.3.0) (2024-08-08)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v6.0.0...v6.0.1
 
-## v6.0.0 - 2025-01-27
+### 🚀 Features
 
-### What's Changed
+* upgrade the datadog integration module, exposing the latest settings ([#207](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/207)) ([f0f201f](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/f0f201fc4fb37213c97d988f23f9b83a93f2f913))
 
-#### 📖 Documentation
+## [3.2.5](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.2.4...v3.2.5) (2024-08-01)
 
-* Improve v5.x.x upgrade guide (#218) @marwinbaumannsbp
 
-#### 🧺 Miscellaneous
+### 🐛 Fixes
 
-* Replace account ID with account name in `aws_ssoadmin_account_assignment` (BREAKING CHANGE) (#219) @shoekstra
+* add create timeout config for aws_inspector2_enabler resource ([#206](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/206)) ([3498564](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/349856416cc04ccdcbbb3242619f6f896bcb343f))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v5.0.0...v6.0.0
+## [3.2.4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.2.3...v3.2.4) (2024-07-02)
 
-## v5.0.0 - 2024-12-24
 
-### What's Changed
+### 🐛 Fixes
 
-#### 🚀 Features
+* for passing Control.1 Security Hub control on the core-mgmt account ([#205](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/205)) ([bbe5b48](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/bbe5b486c9e0683ed0ae5dce987f8ce679a00668))
 
-* breaking: Central Security Hub configuration (#216) @sbkg0002
+## [3.2.3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.2.2...v3.2.3) (2024-05-28)
 
-#### 📖 Documentation
 
-* docs: improve upgrade guide to v5 (#217) @marwinbaumannsbp
+### 🐛 Fixes
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v4.0.1...v5.0.0
+* bug: add servicequotas to allowed regions deny since global quotas need to be managed from us-east-1 ([#204](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/204)) ([ec661e6](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/ec661e6b79906b656949bc9175f27673adb153e8))
 
-## v4.0.1 - 2024-11-01
+## [3.2.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.2.1...v3.2.2) (2024-04-19)
 
-### What's Changed
 
-#### 🐛 Bug Fixes
+### 🐛 Fixes
 
-* fix: add the option to control the SecurityHub auto enabling behaviour for newly created AWS accounts (#213) @kapas2004
+* global allowed region permissions for quicksight ([#202](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/202)) ([bb50b45](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/bb50b456fe5520186f75b3f9b8f5b8bb849adee1))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v4.0.0...v4.0.1
+## [3.2.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.2.0...v3.2.1) (2024-03-29)
 
-## v4.0.0 - 2024-10-28
 
-### What's Changed
+### 🐛 Fixes
 
-#### 🚀 Features
+* add logs:* to the allowed regions exclusion since this is needed for global services ([#201](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/201)) ([2287d7b](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/2287d7b027f9df22405d964671b1e7ff6af095a5))
 
-* breaking: update GuardDuty to support runtime monitoring (#210) @marwinbaumannsbp
+## [3.2.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.1.2...v3.2.0) (2024-02-22)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.5.2...v4.0.0
 
-## v3.5.2 - 2024-10-11
+### 🚀 Features
 
-### What's Changed
+* Add Amazon Inspector support ([#200](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/200)) ([4eb9c2a](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/4eb9c2afc78a2bf803f1d1ebdd3a92b7d634b2f8))
 
-#### 🐛 Bug Fixes
+## [3.1.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.1.1...v3.1.2) (2024-02-21)
 
-* fix: Remove unused SES forwarder alias (#212) @shoekstra
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.5.1...v3.5.2
+### 🐛 Fixes
 
-## v3.5.1 - 2024-10-02
+* add default principal to region deny SCP ([#199](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/199)) ([5f25d4f](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/5f25d4fdee22b8e347b463b4d75e317ffef43d61))
 
-### What's Changed
+## [3.1.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.1.0...v3.1.1) (2024-01-17)
 
-#### 🐛 Bug Fixes
 
-* fix: bump Datadog module to one with fixed dependencies (#211) @stefanwb
+### 🐛 Fixes
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.5.0...v3.5.1
+* global allowed region permissions for s3 logging & quicksight ([#198](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/198)) ([cf59393](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/cf593937d4188e10811cb82051c52edd6613a287))
 
-## v3.5.0 - 2024-09-10
+## [3.1.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v3.0.0...v3.1.0) (2024-01-05)
 
-### What's Changed
 
-#### 🚀 Features
+### 🚀 Features
 
-* feature: update dependencies for security findings (#209) @Plork
+* enhancement: Enable AWS Audit Manager ([#197](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/197)) ([8860aaf](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/8860aafee900bd91a20680c652a090a8831bcfac))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.4.0...v3.5.0
+## [3.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v2.0.1...v3.0.0) (2024-01-02)
 
-## v3.4.0 - 2024-08-12
 
-### What's Changed
+### 🚀 Features
 
-#### 🐛 Bug Fixes
+* breaking: Control Tower 3.0 support ([#196](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/196)) ([b470821](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/b470821c71ceb5a5b0b849bd0899f0ea20fffcbf))
 
-* bug: encrypt the audit manager reports bucket using KMS (#208) @marwinbaumannsbp
+## [2.0.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v2.0.0...v2.0.1) (2023-12-04)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.3.0...v3.4.0
 
-## v3.3.0 - 2024-08-08
+### 🐛 Fixes
 
-### What's Changed
+* add provider to guardduty features ([#195](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/195)) ([85dbc48](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/85dbc4832d0bfe765aab5bdfd47df13806a3a0eb))
 
-#### 🚀 Features
+## [2.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v1.4.0...v2.0.0) (2023-12-04)
 
-* feature: upgrade the datadog integration module, exposing the latest settings (#207) @marwinbaumannsbp
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.2.5...v3.3.0
+### 🚀 Features
 
-## v3.2.5 - 2024-08-01
+* breaking: Add AWS Guardduty detector features & bump AWS provider to next major v5 ([#194](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/194)) ([58fdc2e](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/58fdc2e9b5a2de47a67a9335aa431c5890b454ef))
 
-### What's Changed
+## [1.4.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v1.3.0...v1.4.0) (2023-11-09)
 
-#### 🐛 Bug Fixes
 
-* fix: add create timeout config for aws_inspector2_enabler resource (#206) @skesarkar-schubergphilis
+### 🚀 Features
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.2.4...v3.2.5
+* Add option to provide event_selector for CloudTrail ([#193](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/193)) ([15e8a86](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/15e8a864d003f907ff10d769414af0069fee9ae5))
 
-## v3.2.4 - 2024-07-02
+## [1.3.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v1.2.0...v1.3.0) (2023-10-02)
 
-### What's Changed
 
-#### 🐛 Bug Fixes
+### 🚀 Features
 
-* fix: for passing Control.1 Security Hub control on the core-mgmt account (#205) @marceldevroed
+* enhancement: Update mcaf datadog  to v0.3.12 ([#191](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/191)) ([d00174e](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/d00174ebd5f965ed66416a1b498795d41ae55985))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.2.3...v3.2.4
+## [1.2.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v1.1.1...v1.2.0) (2023-09-08)
 
-## v3.2.3 - 2024-05-28
 
-### What's Changed
+### 🚀 Features
 
-#### 🐛 Bug Fixes
+* update allowed_regions SCP to include latest services ([#190](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/190)) ([64f235e](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/64f235eeab0422f4495f0a2f8f64dad9c45d5964))
 
-* bug: add servicequotas to allowed regions deny since global quotas need to be managed from us-east-1 (#204) @marwinbaumannsbp
+## [1.1.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v1.1.0...v1.1.1) (2023-08-09)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.2.2...v3.2.3
 
-## v3.2.2 - 2024-04-19
+### 🐛 Fixes
 
-### What's Changed
+* bug: tag policy documentation is not in line with actual enforcement options enforced by the tag policies service ([#188](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/188)) ([1e9e434](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/1e9e4342465f3ea221b6efdafa6152feb7b41c69))
 
-#### 🐛 Bug Fixes
+## [1.1.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v1.0.1...v1.1.0) (2023-08-08)
 
-* fix: global allowed region permissions for quicksight (#202) @svashisht03
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.2.1...v3.2.2
+### 🚀 Features
 
-## v3.2.1 - 2024-03-29
+* update the tag policy services and resource types list that support enforcement ([#187](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/187)) ([1efb834](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/1efb83480ff907e996338eea9730d3762e62d27e))
 
-### What's Changed
+## [1.0.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v1.0.0...v1.0.1) (2023-07-25)
 
-#### 🐛 Bug Fixes
 
-* fix: add logs:* to the allowed regions exclusion since this is needed for global services (#201) @angautam
+### 🐛 Fixes
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.2.0...v3.2.1
+* bug: aws security hub in management settings need to be removed to prevent overriding of values ([#186](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/186)) ([16ec417](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/16ec417671fe43f2bac5e067b4f4c63f8a0ef2a3))
 
-## v3.2.0 - 2024-02-22
+## [1.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.28.1...v1.0.0) (2023-07-25)
 
-### What's Changed
 
-#### 🚀 Features
+### 🚀 Features
 
-* feature: Add Amazon Inspector support (#200) @wvanheerde
+* Refactor AWS Security Hub configuration ([#185](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/185)) ([782195a](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/782195a30b8ecfcf51ee56b42b04328009fea1d9))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.1.2...v3.2.0
+## [0.28.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.28.0...v0.28.1) (2023-07-12)
 
-## v3.1.2 - 2024-02-21
 
-### What's Changed
+### 🐛 Fixes
 
-#### 🐛 Bug Fixes
+* Remove unused `files/okta/app_settings.json.tpl` file ([#183](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/183)) ([4b2c69f](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/4b2c69ff8b5bffec9a45dfea0609f23ba32d9ea6))
+* bug: cis metrics filters get removed when upgrading to v0.26.0 or higher but not upgrading to security hub cis 1.4 ([#184](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/184)) ([162f9b2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/162f9b25de2cd2767d4a9d952d685301d077d61b))
 
-* fix: add default principal to region deny SCP (#199) @marwinbaumannsbp
+## [0.28.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.27.0...v0.28.0) (2023-07-11)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.1.1...v3.1.2
 
-## v3.1.1 - 2024-01-17
+### 🚀 Features
 
-### What's Changed
+* enhancement: Adds log collection option for DD integration ([#182](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/182)) ([3fb2c19](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/3fb2c1922d6b46e9585e5a349d1492222b0aeb43))
 
-#### 🐛 Bug Fixes
+## [0.27.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.26.1...v0.27.0) (2023-07-11)
 
-* fix: global allowed region permissions for s3 logging & quicksight (#198) @Plork
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.1.0...v3.1.1
+### 🚀 Features
 
-## v3.1.0 - 2024-01-05
+* enhancement: Enable SecurityHub for management and logging account ([#176](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/176)) ([9c88243](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/9c88243c7830aa85e37f01619547f58e75f836cf))
 
-### What's Changed
+### 🐛 Fixes
 
-#### 🚀 Features
+* enhancement: Enable SecurityHub for management and logging account ([#176](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/176)) ([9c88243](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/9c88243c7830aa85e37f01619547f58e75f836cf))
 
-* enhancement: Enable AWS Audit Manager (#197) @stefanwb
+## [0.26.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.26.0...v0.26.1) (2023-07-10)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v3.0.0...v3.1.0
 
-## v3.0.0 - 2024-01-02
+### 🐛 Fixes
 
-### What's Changed
+* bug: ses-root-accounts-mail-forward s3 bucket solve ACL error ([#180](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/180)) ([c02789b](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/c02789b0852a787e41376d7f0d9e54a2350c3489))
 
-#### 🚀 Features
+## [0.26.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.25.1...v0.26.0) (2023-06-19)
 
-* breaking: Control Tower 3.0 support (#196) @stefanwb
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v2.0.1...v3.0.0
+### 🚀 Features
 
-## v2.0.1 - 2023-12-04
+* enhancement: Update cis-aws-foundations-benchmark from v1.2.0 to v1.4.0 ([#177](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/177)) ([6a4c101](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/6a4c101007c52b3f8682858d9934bd95684008ee))
 
-### What's Changed
+## [0.25.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.25.0...v0.25.1) (2023-05-26)
 
-#### 🐛 Bug Fixes
 
-* fix: add provider to guardduty features (#195) @marcoschreurs
+### 🐛 Fixes
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v2.0.0...v2.0.1
+* bug: when creating the AWS Config bucket the ACL is not supported ([#179](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/179)) ([82e5f1e](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/82e5f1e5b00c3327773bc6012109818da263e075))
 
-## v2.0.0 - 2023-12-04
+## [0.25.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.24.1...v0.25.0) (2023-04-03)
 
-### What's Changed
 
-#### 🚀 Features
+### 🚀 Features
 
-* breaking: Add AWS Guardduty detector features & bump AWS provider to next major v5 (#194) @marcoschreurs
+* enhancement: add kms encryption to the CloudTrail `additional_auditing_trail` ([#171](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/171)) ([0580ea8](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/0580ea84889cab39d9c03fcac4be9b2d27ba4862))
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v1.4.0...v2.0.0
+## [0.24.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.24.0...v0.24.1) (2023-04-03)
 
-## v1.4.0 - 2023-11-09
+## [0.24.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.23.0...v0.24.0) (2023-02-07)
 
-### What's Changed
+## [0.23.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.22.0...v0.23.0) (2023-02-01)
 
-#### 🚀 Features
+## [0.22.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.21.5...v0.22.0) (2023-01-19)
 
-- feat: Add option to provide event_selector for CloudTrail (#193) @sbkg0002
+## [0.21.5](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.21.4...v0.21.5) (2023-01-16)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v1.3.0...v1.4.0
+## [0.21.4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.21.3...v0.21.4) (2023-01-09)
 
-## v1.3.0 - 2023-10-02
+## [0.21.3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.21.1...v0.21.3) (2023-01-06)
 
-### What's Changed
+## [0.21.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.21.2...v0.21.1) (2023-01-03)
 
-#### 🚀 Features
+## [0.21.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.21.0...v0.21.2) (2023-01-03)
 
-- enhancement: Update mcaf datadog  to v0.3.12 (#191) @marcoschreurs
+## [0.21.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.20.0...v0.21.0) (2022-12-29)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v1.2.0...v1.3.0
+## [0.20.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.19.1...v0.20.0) (2022-12-22)
 
-## v1.2.0 - 2023-09-08
+## [0.19.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.19.0...v0.19.1) (2022-12-14)
 
-### What's Changed
+## [0.19.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.18.0...v0.19.0) (2022-12-13)
 
-#### 🚀 Features
+## [0.18.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.17.8...v0.18.0) (2022-12-01)
 
-- feat: update allowed_regions SCP to include latest services (#190) @marwinbaumannsbp
+## [0.17.8](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.17.7...v0.17.8) (2022-11-23)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v1.1.1...v1.2.0
+## [0.17.7](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.17.5...v0.17.7) (2022-11-18)
 
-## v1.1.1 - 2023-08-09
+## [0.17.5](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.17.6...v0.17.5) (2022-10-13)
 
-### What's Changed
+## [0.17.6](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.17.4...v0.17.6) (2022-10-13)
 
-#### 🐛 Bug Fixes
+## [0.17.4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.17.3...v0.17.4) (2022-10-05)
 
-- bug: tag policy documentation is not in line with actual enforcement options enforced by the tag policies service (#188) @marwinbaumannsbp
+## [0.17.3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.17.2...v0.17.3) (2022-09-30)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v1.1.0...v1.1.1
+## [0.17.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.17.1...v0.17.2) (2022-08-12)
 
-## v1.1.0 - 2023-08-08
+## [0.17.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.17.0...v0.17.1) (2022-08-11)
 
-### What's Changed
+## [0.17.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.16.0...v0.17.0) (2022-08-10)
 
-#### 🚀 Features
+## [0.16.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.15.6...v0.16.0) (2022-08-08)
 
-- feat: update the tag policy services and resource types list that support enforcement (#187) @marwinbaumannsbp
+## [0.15.6](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.15.5...v0.15.6) (2022-07-13)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v1.0.1...v1.1.0
+## [0.15.5](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.15.4...v0.15.5) (2022-05-31)
 
-## v1.0.1 - 2023-07-25
+## [0.15.4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.15.3...v0.15.4) (2022-04-15)
 
-### What's Changed
+## [0.15.3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.15.2...v0.15.3) (2022-04-05)
 
-#### 🐛 Bug Fixes
+## [0.15.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.15.1...v0.15.2) (2022-03-14)
 
-- bug: aws security hub in management settings need to be removed to prevent overriding of values (#186) @marwinbaumannsbp
+## [0.15.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.15.0...v0.15.1) (2022-03-10)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v1.0.0...v1.0.1
+## [0.15.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.14.1...v0.15.0) (2022-02-21)
 
-## v1.0.0 - 2023-07-25
+## [0.14.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.14.0...v0.14.1) (2022-01-19)
 
-### What's Changed
+## [0.14.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.13.0...v0.14.0) (2022-01-14)
 
-#### 🚀 Features
+## [0.13.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.12.2...v0.13.0) (2021-11-17)
 
-- feature: Refactor AWS Security Hub configuration (#185) @marwinbaumannsbp
+## [0.12.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.12.1...v0.12.2) (2021-11-10)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v0.28.1...v1.0.0
+## [0.12.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.11.0...v0.12.1) (2021-10-27)
 
-## v0.28.1 - 2023-07-12
+## [0.11.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.12.0...v0.11.0) (2021-09-22)
 
-### What's Changed
+## [0.12.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.10.6...v0.12.0) (2021-09-22)
 
-#### 🐛 Bug Fixes
+## [0.10.6](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.10.5...v0.10.6) (2021-09-13)
 
-- fix: Remove unused `files/okta/app_settings.json.tpl` file (#183) @shoekstra
-- bug: cis metrics filters get removed when upgrading to v0.26.0 or higher but not upgrading to security hub cis 1.4 (#184) @marwinbaumannsbp
+## [0.10.5](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.10.4...v0.10.5) (2021-09-07)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v0.28.0...v0.28.1
+## [0.10.4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.10.3...v0.10.4) (2021-08-23)
 
-## v0.28.0 - 2023-07-11
+## [0.10.3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.10.2...v0.10.3) (2021-08-04)
 
-### What's Changed
+## [0.10.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.10.1...v0.10.2) (2021-07-13)
 
-#### 🚀 Features
+## [0.10.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.10.0...v0.10.1) (2021-06-30)
 
-- enhancement: Adds log collection option for DD integration (#182) @stefanwb
+## [0.10.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.9.1...v0.10.0) (2021-05-27)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v0.27.0...v0.28.0
+## [0.9.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.9.0...v0.9.1) (2021-05-11)
 
-## v0.27.0 - 2023-07-11
+## [0.9.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.8.2...v0.9.0) (2021-04-14)
 
-### What's Changed
+## [0.8.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.8.1...v0.8.2) (2021-04-09)
 
-#### 🚀 Features
+## [0.8.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.8.0...v0.8.1) (2021-03-22)
 
-- enhancement: Enable SecurityHub for management and logging account (#176) @stimmerman
+## [0.8.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.7.4...v0.8.0) (2021-03-05)
 
-#### 🐛 Bug Fixes
+## [0.7.4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.7.3...v0.7.4) (2021-03-03)
 
-- enhancement: Enable SecurityHub for management and logging account (#176) @stimmerman
+## [0.7.3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.7.2...v0.7.3) (2021-02-26)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v0.26.1...v0.27.0
+## [0.7.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.7.0...v0.7.2) (2021-02-25)
 
-## v0.26.1 - 2023-07-10
+## [0.7.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.7.1...v0.7.0) (2021-02-24)
 
-### What's Changed
+## [0.7.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.6.1...v0.7.1) (2021-02-24)
 
-#### 🐛 Bug Fixes
+## [0.6.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.6.0...v0.6.1) (2021-02-09)
 
-- bug: ses-root-accounts-mail-forward s3 bucket solve ACL error (#180) @marwinbaumannsbp
+## [0.6.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.5.0...v0.6.0) (2021-02-02)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v0.26.0...v0.26.1
+## [0.5.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.5.1...v0.5.0) (2021-01-15)
 
-## v0.26.0 - 2023-06-19
+## [0.5.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.4.8...v0.5.1) (2021-01-15)
 
-### What's Changed
+## [0.4.8](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.4.9...v0.4.8) (2021-01-11)
 
-#### 🚀 Features
+## [0.4.9](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.4.7...v0.4.9) (2021-01-11)
 
-- enhancement: Update cis-aws-foundations-benchmark from v1.2.0 to v1.4.0 (#177) @stimmerman
+## [0.4.7](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.4.5...v0.4.7) (2021-01-10)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v0.25.1...v0.26.0
+## [0.4.5](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.4.6...v0.4.5) (2021-01-08)
 
-## v0.25.1 - 2023-05-26
+## [0.4.6](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.4.4...v0.4.6) (2021-01-08)
 
-### What's Changed
+## [0.4.4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.4.3...v0.4.4) (2021-01-06)
 
-#### 🐛 Bug Fixes
+## [0.4.3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.4.1...v0.4.3) (2021-01-05)
 
-- bug: when creating the AWS Config bucket the ACL is not supported (#179) @marwinbaumannsbp
+## [0.4.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.4.2...v0.4.1) (2020-12-29)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v0.25.0...v0.25.1
+## [0.4.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.4.0...v0.4.2) (2020-12-29)
 
-## v0.25.0 - 2023-04-03
+## [0.4.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.3.2...v0.4.0) (2020-12-16)
 
-### What's Changed
+## [0.3.2](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.3.1...v0.3.2) (2020-12-14)
 
-- Remove workflows (#172) @shoekstra
-- TF docs needs to write content (#170) @stimmerman
-- Be more explicit about which files to keep in sync (#169) @stefanwb
-- Bumps checkov in Actions (#168) @stefanwb
+## [0.3.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.3.0...v0.3.1) (2020-12-09)
 
-#### 🚀 Features
+## [0.3.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.2.1...v0.3.0) (2020-12-04)
 
-- enhancement: add kms encryption to the CloudTrail `additional_auditing_trail` (#171) @japm94
+## [0.2.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.2.0...v0.2.1) (2020-11-30)
 
-#### 📖 Documentation
+## [0.2.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.1.0...v0.2.0) (2020-11-23)
 
-- enhancement: add kms encryption to the CloudTrail `additional_auditing_trail` (#171) @japm94
+## 0.1.0 (2020-11-16)
 
-**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/compare/v0.24.1...v0.25.0
-
-## v0.24.1 - 2023-02-10
-
-ENHANCEMENTS
-
-- Add KMS permissions to the KMS key to allow encryption/decryption by the cloudWatch log group of the `ses-root-accounts-mail-forward` lambda ([#167](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/167)).
-- Encrypt the CloudWatch log group of the `ses-root-accounts-mail-forward` lambda ([#166](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/166)).
-
-## v0.24.0 - 2023-02-07
-
-ENHANCEMENTS
-
-- Change nested provider to provider alias ([#165](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/165)).
-
-## v0.23.0 - 2023-02-01
-
-ENHANCEMENTS
-
-- Use a seperate bucket to store AWS Config Configuration History, enable KMS on the delivery channel objects, and add the option to set a optional path for all supported IAM resources. ([#164](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/164)).
-- Restructure module - create a file per provided functionality instead of per account ([#163](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/163)).
-
-## v0.22.0 - 2023-01-18
-
-ENHANCEMENTS
-
-- Make GuardDuty more configurable, adds ability to set publishing frequency and data sources ([#161](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/161)).
-
-## v0.21.5 - 2023-01-11
-
-ENHANCEMENTS
-
-- Adding CheckOV to the workflow and solving all CheckOV findings ([#160](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/160)).
-
-## v0.21.4 - 2023-01-09
-
-ENHANCEMENTS
-
-- Adding the `supportplans:*` global service as exception to the `DenyAllRegionsOutsideAllowedList` SCP ([#159](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/159)).
-
-## v0.21.3 - 2023-01-06
-
-ENHANCEMENTS
-
-- Fixed CheckOV finding because of `aws_guardduty_detector` not explicity enabled ([#158](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/158)).
-
-## v0.21.2 - 2023-01-03
-
-ENHANCEMENTS
-
-- Update minimum AWS provider version to fix deprecation message in `aws_identitystore_group` data resource ([#157](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/157)).
-
-## v0.21.1 - 2023-01-03
-
-ENHANCEMENTS
-
-- Add DMARC support for SES root accounts mail forward feature, this will make it possible to configure a RUA or RUF email address to send DMARC reports to ([#156](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/156)).
-
-## v0.21.0 - 2022-12-27
-
-BUG FIXES
-
-- Adding allowing IAM entities exceptions on `aws_deny_disabling_security_hub` and `aws_deny_leaving_org` organizations policy. Move SCP's variables into `aws_service_control_policies` ([#153](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/153)).
-
-## v0.20.0 - 2022-12-13
-
-ENHANCEMENTS
-
-- Move AWS IAM Identity Center permission set resources to a sub-module. ([#150](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/150))
-
-## v0.19.1 - 2022-12-14
-
-ENHANCEMENTS
-
-- Generate unique names for tag policies and remove services that are not supported from the enforcement list. ([#155](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/155))
-
-## v0.19.0 - 2022-12-13
-
-ENHANCEMENTS
-
-- Create tag policies per tag key, this will recreate any existing policies, and allow policy enforcement per service. ([#152](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/152))
-
-## v0.18.0 - 2022-11-30
-
-ENHANCEMENTS
-
-- Allow Tag Policies on nested Organizational units and allow optional `values` for Tag policies. Therefore the Terraform version requirement is now `>= 1.3`  ([#151](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/151))
-
-## v0.17.8 - 2022-11-23
-
-ENHANCEMENTS
-
-- Bump terraform-aws-mcaf-ses-forwarder to 0.2.2, which removes template provider dependency. ([#149](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/149))
-
-## v0.17.7 - 2022-11-17
-
-BUG FIXES
-
-- Update allowed regions list to include latest services. ([#148](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/148))
-
-## v0.17.6 - 2022-10-13
-
-BUG FIXES
-
-- Update AWS ConfigRole to match the updated policy name. ([#147](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/147))
-
-## v0.17.5 - 2022-10-13
-
-BUG FIXES
-
-- Only use `aws_cloudwatch_log_group` data sources when the variable `monitor_iam_activity` is set to true. ([#145](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/145))
-
-## v0.17.4 - 2022-10-05
-
-BUG FIXES
-
-- Fix error: Null values are not allowed for this attribute value. ([#144](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/144))
-- Fix SH finding SNS.2 on core-audit account -- Configuring delivery status logging. ([#142](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/142))
-
-## v0.17.3 - 2022-09-30
-
-ENHANCEMENTS
-
-- Update the terraform-aws-mcaf-ses module to v0.1.1 to support DMARC record creation. ([#141](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/141))
-
-## v0.17.2 - 2022-08-12
-
-BUG FIXES
-
-- Modify audit kms key policy to grant GenerateDataKey permissions to pipeline . ([#140](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/140))
-
-## v0.17.1 - 2022-08-11
-
-BUG FIXES
-
-- Allow sns.amazonaws.com access to the audit kms key and remove an unneeded statement in the master key. ([#138](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/138))
-- Modify master account KMS key policy allowing override. ([#139](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/139))
-
-## v0.17.0 - 2022-08-10
-
-ENHANCEMENTS
-
-- Add support for providing custom KMS key policy for audit KMS key and move KMS to a seperate file. ([#137](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/137))
-
-## v0.16.0 - 2022-08-08
-
-ENHANCEMENTS
-
-- Add support for AWS Provider version 4. ([#136](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/136))
-
-## v0.15.6 - 2022-07-13
-
-BUG FIXES
-
-- Modify KMS key input of the internal `ses-root-accounts-mail-forward` module to use ARN in stead of ID. ([#135](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/135))
-
-## v0.15.5 - 2022-05-31
-
-ENHANCEMENTS
-
-- Whitelist Sustainability as a approved global service in the Allowed Regions Service Control Policy. ([#134](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/134))
-
-## v0.15.4 - 2022-04-15
-
-BUG FIXES
-
-- Datadog site url is now also passed to datadog forwarder module for audit and logging accounts. ([#133](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/133))
-
-## v0.15.3 - 2022-04-05
-
-BUG FIXES
-
-- When `var.monitor_iam_activity` is set `false` we shouldn't create any `iam_activity` related resources. ([#131](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/131))
-
-## v0.15.2 - 2022-03-14
-
-ENHANCEMENTS
-
-- Updated KMS key policy for logging KMS key have more default Get permissions. ([#130](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/130))
-
-## v0.15.1 - 2022-03-10
-
-ENHANCEMENTS
-
-- Added a KMS key for logging account with support for KMS key policy. ([#129](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/129))
-
-## v0.15.0 - 2022-02-21
-
-ENHANCEMENTS
-
-- Add an optional mail forwarder using Amazon SES: adding the `ses_root_accounts_mail_forward` variable creates the necessary SES resources to accept mail sent to an AWS hosted domain and forward it to an external recipient or recipients. ([#128](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/128))
-
-## v0.14.0 - 2022-01-14
-
-ENHANCEMENTS
-
-- Add an account level S3 public access policy to block public access to all S3 buckets within the landing zone core accounts. ([#125](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/125))
-
-## v0.13.0 - 2021-11-17
-
-ENHANCEMENTS
-
-- Add support for assigning managed policies in SSO permission sets. ([#124](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/124))
-
-## v0.12.2 - 2021-11-10
-
-BUG FIXES
-
-- Fixed malfunction policy issue. Allowed regions policy template wasn't using the appropariate allowed_region property. ([#123](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/123))
-
-## v0.12.1 - 2021-10-27
-
-BUG FIXES
-
-- Conditionally merges DenyAllRegionsOutsideAllowedList, DenyDeletingCloudTrailLogStream, DenyDisablingSecurityHub, RequireAllEc2RolesToUseV2, RequireImdsV2, MaxImdsHopLimit, and DenyLeavingOrg policies into one `LandinZone-RootPolicies` policy to avoid exceeding SCP limit (5 policies per org) [Quotas for AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html).
-- ([#120](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/120))
-
-## v0.12.0 - 2021-09-22
-
-ENHANCEMENTS
-
-- Set the audit account as security hub administrator account for the organization and automatically enable Security Hub for new accounts in the organization. ([#121](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/121))
-
-## v0.11.0 - 2021-09-22
-
-ENHANCEMENTS
-
-- Add additional IAM activity monitors. ([#119](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/119))
-
-## v0.10.6 - 2021-09-13
-
-ENHANCEMENTS
-
-- Upgrade Datadog MCAF module used in core accounts to latest version. ([#118](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/118))
-
-## v0.10.5 - 2021-09-07
-
-ENHANCEMENTS
-
-- Update IAM Activity Monitor for root usage to match CIS AWS rule 1.1. ([#117](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/117))
-
-## v0.10.4 - 2021-08-23
-
-ENHANCEMENTS
-
-- Add a `DenyDisablingSecurityHub` SCP that is attached to all AWS Organisation OUs. ([#110](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/110))
-
-## v0.10.3 - 2021-08-04
-
-ENHANCEMENTS
-
-- Enable by default AWS GuardDuty S3 protection. ([#111](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/111))
-
-## v0.10.2 - 2021-07-13
-
-ENHANCEMENTS
-
-- Update KMS module. ([#109](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/109))
-
-## v0.10.1 - 2021-06-30
-
-ENHANCEMENTS
-
-- Make list of SecurityHub Standards configurable ([#108](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/108))
-
-## v0.10.0 - 2021-05-27
-
-ENHANCEMENTS
-
-- Add support for multiple SSO Permission Set assignments. ([#106](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/106))
-
-## v0.9.1 - 2021-05-11
-
-ENHANCEMENTS
-
-- Added support for KMS Key policy. ([#104](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/104))
-
-## v0.9.0 - 2021-04-12
-
-ENHANCEMENTS
-
-- Removal of the local AVM module. AVM module has been split up into 2 modules to allow for more flexibility: AVM core functionality has been moved to [MCAF Account Vending Machine (AVM) module](https://github.com/schubergphilis/terraform-aws-mcaf-avm) and all other functionality has been moved to the [MCAF Account Baseline module](https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline). ([#102](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/102))
-
-## v0.8.2 - 2021-04-08
-
-BUG FIXES
-
-- Adds `is_multi_region_trail = true` & `enable_log_file_validation = true` for cloudtrail resource regarding TFSEC#AWS063 & #AWS064 ([#101](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/101))
-- Allows access-analyzer to be used outside region since it's a global service + adds ignores for tfsec ([#100](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/100))
-
-## v0.8.1 - 2021-03-22
-
-ENHANCEMENTS
-
-- Add support to use a TFC agent pool ([#98](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/98))
-
-## v0.8.0 - 2021-03-05
-
-ENHANCEMENTS
-
-- Add support to manage AWS SSO resources ([#95](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/95))
-
-## v0.7.4 - 2021-03-03
-
-ENHANCEMENTS
-
-- Add SCP to protect CloudTrail LogStream ([#94](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/94))
-
-BUG FIXES
-
-- Prevent error when aws_required_tags is not set ([#93](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/93))
-- Improve tagging of resources ([#92](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/92))
-
-## v0.7.3 - 2021-02-06
-
-ENHANCEMENTS
-
-- Adding tag compliance capability using tag policies ([#84](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/84))
-
-## v0.7.2 - 2021-02-25
-
-ENHANCEMENTS
-
-- Add capability to disable SSO activity monitoring in the AVM module ([#89](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/89))
-
-## v0.7.1 - 2021-02-24
-
-BUG FIXES
-
-- Update SCP to support AWS ChatBot ([#88](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/88))
-
-## v0.7.0 - 2021-02-24
-
-ENHANCEMENTS
-
-- Update IAM activity monitoring in the AVM module ([#86](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/86))
-- Update IAM activity monitoring in the core accounts ([#85](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/85))
-
-## v0.6.1 - 2021-02-09
-
-BUG FIXES
-
-- Add missing provider to the `aws_iam_account_password_policy` and `aws_ebs_encryption_by_default` resources ([#82](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/82))
-
-## v0.6.0 - 2021-02-02
-
-BUG FIXES
-
-- Fix error when trying to read SNS topic policy from data source ([#78](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/78))
-
-ENHANCEMENTS
-
-- Enable AWS EBS encryption by default ([#79](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/79))
-- Refactored Securityhub to use organizations and removed unused Guardduty resources ([#80](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/80))
-
-## v0.5.1 - 2021-01-15
-
-BUG FIXES
-
-- Fix `workspace_id` output in AVM module when the module does not create a workspace ([#76](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/76))
-
-## v0.5.0 - 2021-01-15
-
-ENHANCEMENTS
-
-- Add ability to opt out of workspace create when you want to create the workspace and workspace user outside of the AVM module ([#74](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/74))
-
-## v0.4.9 - 2021-01-11
-
-BUG FIXES
-
-- Fix bug in output `monitor_iam_access_sns_topic_arn`, this needs to be the event bus arn. Changed the value and the output to match the event bus in the audit account ([#72](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/72))
-
-## v0.4.8 - 2021-01-11
-
-BUG FIXES
-
-- Fix bug in `monitor_iam_access` pattern in the AVM module, `userName` must be an array ([#70](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/70))
-
-## v0.4.7 - 2021-01-08
-
-BUG FIXES
-
-- Enable key rotation for the kms resources ([#68](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/68))
-
-## v0.4.6 - 2021-01-08
-
-ENHANCEMENTS
-
-- Add notifications for Security Hub findings via SNS topic LandingZone-SecurityHubFindings ([#56](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/56))
-
-## v0.4.5 - 2021-01-08
-
-BUG FIXES
-
-- Add `endpoint_auto_confirms` variable to the AWS Config SNS topic ([#62](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/62)) ([#64](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/64))
-- Modify accountID of the AWS Config SNS topic ([#65](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/65))
-
-## v0.4.4 - 2021-01-05
-
-BUG FIXES
-
-- Resolve issue where an empty `sns_security_subscription` variable causes a failure and restructured the variable to a map as `for_each` in Terraform 0.14 cannot be used with an object that has sensitive values ([#60](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/60))
-
-## v0.4.3 - 2021-01-04
-
-ENHANCEMENTS
-
-- Set default password policy parameters for the audit, logging, master accounts ([#57](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/57))
-
-ENHANCEMENTS
-
-- Forward SecurityHub findings to AggregateSecurityNotifications SNS topic ([#56](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/56))
-
-## v0.4.2 - 2020-12-29
-
-ENHANCEMENTS
-
-- Add support for subscribing to aggregated security SNS topic ([#41](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/41))
-
-## v0.4.1 - 2020-12-29
-
-ENHANCEMENTS
-
-- Add support for exemptions to the AWS region restriction ([#31](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/31))
-- Set default password policy parameters for the AWS accounts ([#51](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/51)) ([#43](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/43))
-
-BUG FIXES
-
-- Loosen provider version constraints to allow more flexibility for module users ([#53](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/53))
-
-## v0.4.0 - 2020-12-16
-
-ENHANCEMENTS
-
-- Add a `DenyLeavingOrg` SCP that is attached to all AWS Organisation OUs ([#39](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/39))
-- Add a `RequireUseOfIMDSv2` SCP that is attached to all AWS Organisation OUs by default ([#38](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/38))
-- Add a `DenyRootUser` SCP that can be attached to AWS Organisation OUs ([#37](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/37))
-
-## v0.3.2 - 2020-12-14
-
-BUG FIXES
-
-- Fix support for Datadog region ([#36](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/36))
-
-## v0.3.1 - 2020-12-09
-
-ENHANCEMENTS
-
-- Add support for usage of different Datadog region ([#32](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/32)) ([#34](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/34))
-
-## v0.3.0 - 2020-12-04
-
-ENHANCEMENTS
-
-- Add support for an additional CloudTrail Trail configuration ([#28](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/28))
-
-## v0.2.1 - 2020-11-30
-
-BUG FIXES
-
-- Fix recreation of the aws_securityhub_member resource ([#25](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/25))
-- Remove MCAF provider version pin in AVM module ([#26](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/26))
-
-## v0.2.0 - 2020-11-20
-
-ENHANCEMENTS
-
-- Add support for AWS GuardDuty ([#12](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/12))
-- Modify terraform-aws-mcaf-workspace version to 0.3.0 in the avm module, in order to prevent github error ([#22](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/22))
-- Add KMS Key in the Audit account ([#18](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/18))
-- Add support for monitoring IAM access ([#15](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/15))
-- Add support for multiple AWS Config Aggregators ([#14](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/14))
-- Add support for defining specific account name for AWS Service Catalog ([#13](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/13))
-- Make account and email names more flexible. ([#17](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/17))
-
-BUG FIXES
-
-- Fix multiple bugs in unreleased features ([#23](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/23))
-- Add filter to create rules only for the right identities ([#21](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/21))
-- Fix errors when monitor_iam_access is null ([#19](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/19))
-- Add condition to audit AWS Config Aggregate Auth ([#20](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/20))
-
-## v0.1.0 - 2020-11-16
-
-- Adds optional SCP to restrict allowed regions ([#11](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/11))
-- Adds support for optional AWS Config Aggregate Authorization ([#10](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/10))
-- Enables AWS Config in the master account ([#9](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/9))
-- Adds support for custom tags to AVM module ([#8](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/8))
-- Adds support for passing SSH Key Id to TFE workspace ([#7](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/7))
-- Adds output to AVM module ([#6](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/6))
-- Adds support for AWS-Datadog integration ([#5](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/5))
-- Adds support for AWS Config Rules ([#4](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/4))
-- Enables security hub for all AWS Organization accounts ([#3](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/3))
-- Removes embedded Okta Groups ([#2](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/2))
-- First version ([#1](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone/pull/1))
