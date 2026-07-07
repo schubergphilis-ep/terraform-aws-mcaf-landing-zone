@@ -496,19 +496,19 @@ module "landing_zone" {
 |------|--------|---------|
 | <a name="module_aws_config_recorder"></a> [aws\_config\_recorder](#module\_aws\_config\_recorder) | ./modules/aws-config-recorder | n/a |
 | <a name="module_aws_sso_permission_sets"></a> [aws\_sso\_permission\_sets](#module\_aws\_sso\_permission\_sets) | ./modules/permission-set | n/a |
-| <a name="module_datadog_audit"></a> [datadog\_audit](#module\_datadog\_audit) | schubergphilis/mcaf-datadog/aws | ~> 0.9.0 |
-| <a name="module_datadog_logging"></a> [datadog\_logging](#module\_datadog\_logging) | schubergphilis/mcaf-datadog/aws | ~> 0.9.0 |
-| <a name="module_datadog_master"></a> [datadog\_master](#module\_datadog\_master) | schubergphilis/mcaf-datadog/aws | ~> 0.9.0 |
+| <a name="module_datadog_audit"></a> [datadog\_audit](#module\_datadog\_audit) | schubergphilis-ep/mcaf-datadog/aws | ~> 0.9.0 |
+| <a name="module_datadog_logging"></a> [datadog\_logging](#module\_datadog\_logging) | schubergphilis-ep/mcaf-datadog/aws | ~> 0.9.0 |
+| <a name="module_datadog_master"></a> [datadog\_master](#module\_datadog\_master) | schubergphilis-ep/mcaf-datadog/aws | ~> 0.9.0 |
 | <a name="module_guardduty"></a> [guardduty](#module\_guardduty) | ./modules/guardduty | n/a |
 | <a name="module_inspector"></a> [inspector](#module\_inspector) | ./modules/inspector | n/a |
-| <a name="module_kms_key"></a> [kms\_key](#module\_kms\_key) | schubergphilis/mcaf-kms/aws | ~> 1.0.0 |
-| <a name="module_kms_key_audit"></a> [kms\_key\_audit](#module\_kms\_key\_audit) | schubergphilis/mcaf-kms/aws | ~> 1.0.0 |
-| <a name="module_kms_key_logging"></a> [kms\_key\_logging](#module\_kms\_key\_logging) | schubergphilis/mcaf-kms/aws | ~> 1.0.0 |
-| <a name="module_security_baseline_audit"></a> [security\_baseline\_audit](#module\_security\_baseline\_audit) | schubergphilis/mcaf-account-baseline/aws | ~> 7.1.1 |
-| <a name="module_security_baseline_logging"></a> [security\_baseline\_logging](#module\_security\_baseline\_logging) | schubergphilis/mcaf-account-baseline/aws | ~> 7.1.1 |
-| <a name="module_security_baseline_master"></a> [security\_baseline\_master](#module\_security\_baseline\_master) | schubergphilis/mcaf-account-baseline/aws | ~> 7.1.1 |
-| <a name="module_ses-root-accounts-mail-alias"></a> [ses-root-accounts-mail-alias](#module\_ses-root-accounts-mail-alias) | schubergphilis/mcaf-ses/aws | ~> 1.0.0 |
-| <a name="module_ses-root-accounts-mail-forward"></a> [ses-root-accounts-mail-forward](#module\_ses-root-accounts-mail-forward) | schubergphilis/mcaf-ses-forwarder/aws | ~> 1.1.1 |
+| <a name="module_kms_key"></a> [kms\_key](#module\_kms\_key) | schubergphilis-ep/mcaf-kms/aws | ~> 1.0.0 |
+| <a name="module_kms_key_audit"></a> [kms\_key\_audit](#module\_kms\_key\_audit) | schubergphilis-ep/mcaf-kms/aws | ~> 1.0.0 |
+| <a name="module_kms_key_logging"></a> [kms\_key\_logging](#module\_kms\_key\_logging) | schubergphilis-ep/mcaf-kms/aws | ~> 1.0.0 |
+| <a name="module_security_baseline_audit"></a> [security\_baseline\_audit](#module\_security\_baseline\_audit) | schubergphilis-ep/mcaf-account-baseline/aws | ~> 7.1.1 |
+| <a name="module_security_baseline_logging"></a> [security\_baseline\_logging](#module\_security\_baseline\_logging) | schubergphilis-ep/mcaf-account-baseline/aws | ~> 7.1.1 |
+| <a name="module_security_baseline_master"></a> [security\_baseline\_master](#module\_security\_baseline\_master) | schubergphilis-ep/mcaf-account-baseline/aws | ~> 7.1.1 |
+| <a name="module_ses-root-accounts-mail-alias"></a> [ses-root-accounts-mail-alias](#module\_ses-root-accounts-mail-alias) | schubergphilis-ep/mcaf-ses/aws | ~> 1.0.0 |
+| <a name="module_ses-root-accounts-mail-forward"></a> [ses-root-accounts-mail-forward](#module\_ses-root-accounts-mail-forward) | schubergphilis-ep/mcaf-ses-forwarder/aws | ~> 1.1.1 |
 | <a name="module_tag_policy_assignment"></a> [tag\_policy\_assignment](#module\_tag\_policy\_assignment) | ./modules/tag-policy-assignment | n/a |
 
 ## Resources
