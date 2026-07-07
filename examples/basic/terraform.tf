@@ -10,8 +10,8 @@ terraform {
       version = ">= 3.39"
     }
     mcaf = {
-      source  = "schubergphilis/mcaf"
-      version = ">= 0.4.2"
+      source  = "schubergphilis-ep/mcaf"
+      version = ">= 0.4.5"
     }
   }
   required_version = ">= 1.9.0"
