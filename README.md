@@ -479,7 +479,7 @@ module "landing_zone" {
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.7.0 |
 | <a name="requirement_datadog"></a> [datadog](#requirement\_datadog) | >= 3.39, < 4.0 |
-| <a name="requirement_mcaf"></a> [mcaf](#requirement\_mcaf) | >= 0.4.2 |
+| <a name="requirement_mcaf"></a> [mcaf](#requirement\_mcaf) | >= 0.4.5 |
 
 ## Providers
 
@@ -488,7 +488,7 @@ module "landing_zone" {
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 6.7.0 |
 | <a name="provider_aws.audit"></a> [aws.audit](#provider\_aws.audit) | >= 6.7.0 |
 | <a name="provider_aws.logging"></a> [aws.logging](#provider\_aws.logging) | >= 6.7.0 |
-| <a name="provider_mcaf"></a> [mcaf](#provider\_mcaf) | >= 0.4.2 |
+| <a name="provider_mcaf"></a> [mcaf](#provider\_mcaf) | >= 0.4.5 |
 
 ## Modules
 
@@ -566,7 +566,7 @@ module "landing_zone" {
 | [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 | [aws_resourcegroupstaggingapi_resources.controltower_config_s3](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/resourcegroupstaggingapi_resources) | data source |
 | [aws_sns_topic.all_config_notifications](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/sns_topic) | data source |
-| [mcaf_aws_all_organizational_units.default](https://registry.terraform.io/providers/schubergphilis/mcaf/latest/docs/data-sources/aws_all_organizational_units) | data source |
+| [mcaf_aws_all_organizational_units.default](https://registry.terraform.io/providers/schubergphilis-ep/mcaf/latest/docs/data-sources/aws_all_organizational_units) | data source |
 
 ## Inputs
 
