@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [11.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v10.2.0...v11.0.0) (2026-07-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate MCAF module & provider sources ([#3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/issues/3))
+
+### 🐛 Fixes
+
+* migrate MCAF module & provider sources ([#3](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/issues/3)) ([9d4e753](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/9d4e753c44f8c7fac346c3f875714d1527808e62))
+* Updated the upgrading doc ([#268](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/issues/268)) ([3a53371](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/3a533718bd719100420e90e05a00edf06348b794))
+
 ## [10.2.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v10.1.0...v10.2.0) (2026-07-01)
 
 
@@ -669,4 +681,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v0.1.0...v0.2.0) (2020-11-23)
 
 ## 0.1.0 (2020-11-16)
-
