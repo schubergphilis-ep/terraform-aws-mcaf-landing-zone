@@ -5,7 +5,7 @@
 module "kms_key" {
   for_each = local.all_governed_regions
 
-  source  = "schubergphilis/mcaf-kms/aws"
+  source  = "schubergphilis-ep/mcaf-kms/aws"
   version = "~> 1.0.0"
 
   region              = each.key
@@ -144,7 +144,7 @@ module "kms_key_audit" {
   for_each  = local.all_governed_regions
   providers = { aws = aws.audit }
 
-  source  = "schubergphilis/mcaf-kms/aws"
+  source  = "schubergphilis-ep/mcaf-kms/aws"
   version = "~> 1.0.0"
 
   region              = each.key
@@ -297,7 +297,7 @@ module "kms_key_logging" {
   for_each  = local.all_governed_regions
   providers = { aws = aws.logging }
 
-  source  = "schubergphilis/mcaf-kms/aws"
+  source  = "schubergphilis-ep/mcaf-kms/aws"
   version = "~> 1.0.0"
 
   region              = each.key
