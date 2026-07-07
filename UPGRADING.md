@@ -2,6 +2,21 @@
 
 This document captures required refactoring on your part when upgrading to a module version that contains breaking changes.
 
+## Upgrading to v11.0.0
+
+### Key Changes v11.0.0
+
+The Terraform provider source for `mcaf` has moved:
+
+- Old source: `schubergphilis/mcaf`
+- New source: `schubergphilis-ep/mcaf`
+
+### How to upgrade v11.0.0
+
+1. Update your root module provider configuration to use the new source address.
+2. Reinitialize providers: `terraform init -upgrade`
+3. Run `terraform plan` and confirm no unexpected recreation caused by provider address drift.
+
 ## Upgrading to v10.0.0
 
 ### Key Changes v10.0.0

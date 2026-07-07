@@ -3,7 +3,7 @@ module "datadog_audit" {
   count     = try(var.datadog.enable_integration, false) == true ? 1 : 0
   providers = { aws = aws.audit }
 
-  source  = "schubergphilis/mcaf-datadog/aws"
+  source  = "schubergphilis-ep/mcaf-datadog/aws"
   version = "~> 0.9.0"
 
   api_key                              = try(var.datadog.api_key, null)
@@ -25,7 +25,7 @@ module "datadog_master" {
   #checkov:skip=CKV_AWS_124: since this is managed by terraform, we reason that this already provides feedback and a seperate SNS topic is therefore not required
   count = try(var.datadog.enable_integration, false) == true ? 1 : 0
 
-  source  = "schubergphilis/mcaf-datadog/aws"
+  source  = "schubergphilis-ep/mcaf-datadog/aws"
   version = "~> 0.9.0"
 
   api_key                              = try(var.datadog.api_key, null)
@@ -48,7 +48,7 @@ module "datadog_logging" {
   count     = try(var.datadog.enable_integration, false) == true ? 1 : 0
   providers = { aws = aws.logging }
 
-  source  = "schubergphilis/mcaf-datadog/aws"
+  source  = "schubergphilis-ep/mcaf-datadog/aws"
   version = "~> 0.9.0"
 
   api_key                              = try(var.datadog.api_key, null)

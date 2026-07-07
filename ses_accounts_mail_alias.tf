@@ -4,7 +4,7 @@ module "ses-root-accounts-mail-alias" {
   count     = var.ses_root_accounts_mail_forward != null ? 1 : 0
   providers = { aws = aws, aws.route53 = aws }
 
-  source  = "schubergphilis/mcaf-ses/aws"
+  source  = "schubergphilis-ep/mcaf-ses/aws"
   version = "~> 1.0.0"
 
   dmarc      = var.ses_root_accounts_mail_forward.dmarc
@@ -20,7 +20,7 @@ module "ses-root-accounts-mail-forward" {
 
   count = var.ses_root_accounts_mail_forward != null ? 1 : 0
 
-  source  = "schubergphilis/mcaf-ses-forwarder/aws"
+  source  = "schubergphilis-ep/mcaf-ses-forwarder/aws"
   version = "~> 1.1.1"
 
   bucket_name       = "ses-forwarder-${replace(var.ses_root_accounts_mail_forward.domain, ".", "-")}"
