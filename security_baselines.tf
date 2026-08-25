@@ -17,7 +17,7 @@ locals {
 
 module "security_baseline_master" {
   source  = "schubergphilis-ep/mcaf-account-baseline/aws"
-  version = "~> 7.1.1"
+  version = "~> 8.0.0"
 
   extra_regions_to_baseline                   = local.all_governed_regions
   account_password_policy                     = var.aws_core_accounts_baseline_settings.account_password_policy
@@ -34,7 +34,7 @@ module "security_baseline_audit" {
   providers = { aws = aws.audit }
 
   source  = "schubergphilis-ep/mcaf-account-baseline/aws"
-  version = "~> 7.1.1"
+  version = "~> 8.0.0"
 
   extra_regions_to_baseline                   = local.all_governed_regions
   account_password_policy                     = var.aws_core_accounts_baseline_settings.account_password_policy
@@ -51,7 +51,7 @@ module "security_baseline_logging" {
   providers = { aws = aws.logging }
 
   source  = "schubergphilis-ep/mcaf-account-baseline/aws"
-  version = "~> 7.1.1"
+  version = "~> 8.0.0"
 
   extra_regions_to_baseline                   = local.all_governed_regions
   account_password_policy                     = var.aws_core_accounts_baseline_settings.account_password_policy
