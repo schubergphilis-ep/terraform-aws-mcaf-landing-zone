@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [12.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v11.0.0...v12.0.0) (2026-08-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump account baseline to v8.0.0 and update default for var aws_core_accounts_baseline_settings.ebs_snapshot_block_public_access_state ([#4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/issues/4))
+
+### 🚀 Features
+
+* bump account baseline to v8.0.0 and update default for var aws_core_accounts_baseline_settings.ebs_snapshot_block_public_access_state ([#4](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/issues/4)) ([f598c15](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/f598c155dc2777ff31107e7a0b1793f836d62ed6))
+
 ## [11.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v10.2.0...v11.0.0) (2026-07-07)
 
 
