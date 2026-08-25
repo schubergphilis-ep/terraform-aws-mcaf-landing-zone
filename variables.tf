@@ -80,7 +80,7 @@ variable "aws_config_sns_subscription" {
 variable "aws_core_accounts_baseline_settings" {
   type = object({
     ebs_encryption_by_default               = optional(bool, true)
-    ebs_snapshot_block_public_access_state  = optional(string, "block-new-sharing")
+    ebs_snapshot_block_public_access_state  = optional(string, "block-all-sharing")
     ec2_image_block_public_access_state     = optional(string, "block-new-sharing")
     enable_additional_eu_regions            = optional(bool, true)
     ssm_documents_public_sharing_permission = optional(string, "Disable")
