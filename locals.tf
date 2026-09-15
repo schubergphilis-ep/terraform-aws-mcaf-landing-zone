@@ -37,4 +37,10 @@ locals {
 
   allowed_regions      = distinct(concat([var.regions.home_region], try(var.regions.linked_regions, [])))
   all_governed_regions = toset(distinct(concat([var.regions.home_region], var.regions.linked_regions, local.allowed_regions)))
+
+  # linked_regions minus the home region. The home region is already covered by
+  # the provider-scoped aws_securityhub_account resources, and linked_regions is
+  # not validated against containing the home region, so declaring a second
+  # resource for it would conflict.
+  security_hub_linked_regions = toset([for region in var.regions.linked_regions : region if region != var.regions.home_region])
 }

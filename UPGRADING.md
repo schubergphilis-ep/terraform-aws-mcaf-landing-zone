@@ -2,6 +2,63 @@
 
 This document captures required refactoring on your part when upgrading to a module version that contains breaking changes.
 
+## Upgrading to v12.1.0
+
+### Key Changes v12.1.0
+
+#### `control_finding_generator` is now applied in linked regions
+
+`control_finding_generator` is a per-account, per-region Security Hub setting, and
+central configuration policies do not manage it. Previously the module only set it
+in the provider's own region (the home region), so in every region listed in
+`regions.linked_regions` Security Hub kept the `EnableSecurityHub` API default of
+`STANDARD_CONTROL`.
+
+Under `STANDARD_CONTROL`, Security Hub emits one finding per standard for the same
+control instead of a single consolidated finding. A control that fails in two
+enabled standards is therefore reported twice, in a region most consumers only link
+for global-resource tracking.
+
+Two resources have been added, both keyed by `regions.linked_regions`:
+
+- `aws_securityhub_account.linked_regions` (audit account)
+- `aws_securityhub_account.management_linked_regions` (management account)
+
+The existing `aws_securityhub_account.default` and `aws_securityhub_account.management`
+are unchanged and keep their state addresses, so no state migration is needed.
+
+> [!IMPORTANT]
+> Security Hub is already enabled in your linked regions, and
+> `aws_securityhub_account` calls `EnableSecurityHub` on create, which fails with
+> `ResourceConflictException` for an already-enabled account. You must import the
+> new instances before applying.
+
+### How to upgrade v12.1.0
+
+1. Import one instance per linked region, for both accounts. Using `us-east-1` and
+   an audit account of `111111111111` / management account of `222222222222`:
+
+   ```bash
+   terraform import \
+     'module.landing_zone.aws_securityhub_account.linked_regions["us-east-1"]' \
+     '111111111111@us-east-1'
+
+   terraform import \
+     'module.landing_zone.aws_securityhub_account.management_linked_regions["us-east-1"]' \
+     '222222222222@us-east-1'
+   ```
+
+   The `<account-id>@<region>` import form requires AWS provider v6 or higher, which
+   this module already mandates.
+
+2. Run `terraform plan`. The only change should be `control_finding_generator`
+   updating in place from `STANDARD_CONTROL` to `SECURITY_CONTROL` (assuming you use
+   the default value).
+
+3. Apply. Findings already recorded under the legacy generator are not rewritten;
+   Security Hub replaces them as each control is next evaluated, so the duplicate
+   count decays rather than dropping at once.
+
 ## Upgrading to v11.0.0
 
 ### Key Changes v11.0.0

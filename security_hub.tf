@@ -18,6 +18,37 @@ resource "aws_securityhub_account" "default" {
   control_finding_generator = var.aws_security_hub.control_finding_generator
 }
 
+// AWS Security Hub - control_finding_generator in the linked regions
+//
+// control_finding_generator is a per-account, per-region setting and central
+// configuration policies do not manage it. The resources above only cover the
+// provider's own region, so in every linked region Security Hub keeps the
+// EnableSecurityHub API default of STANDARD_CONTROL. That emits one finding per
+// standard for the same control rather than a single consolidated finding, so a
+// control failing in two standards is counted twice.
+//
+// These are separate resources rather than a for_each over
+// local.all_governed_regions so that the existing home-region instances keep
+// their state addresses and no state migration is required.
+resource "aws_securityhub_account" "management_linked_regions" {
+  for_each = local.security_hub_linked_regions
+
+  region                    = each.key
+  control_finding_generator = var.aws_security_hub.control_finding_generator
+
+  depends_on = [aws_securityhub_organization_configuration.default]
+}
+
+resource "aws_securityhub_account" "linked_regions" {
+  for_each = local.security_hub_linked_regions
+  provider = aws.audit
+
+  region                    = each.key
+  control_finding_generator = var.aws_security_hub.control_finding_generator
+
+  depends_on = [aws_securityhub_account.default]
+}
+
 resource "aws_securityhub_finding_aggregator" "default" {
   provider = aws.audit
 
