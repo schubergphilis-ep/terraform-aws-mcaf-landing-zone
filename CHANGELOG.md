@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [12.1.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v12.0.0...v12.1.0) (2026-09-30)
+
+
+### 🚀 Features
+
+* Add support-console:* to allowed region SCP for AWS Support permissions update ([#7](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/issues/7)) ([ddf563c](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/ddf563c3dd5561d5ba94106f10dba483d2dfd97a))
+
 ## [12.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v11.0.0...v12.0.0) (2026-08-25)
 
 
