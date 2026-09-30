@@ -88,6 +88,7 @@ locals {
     "support:*",
     "supportapp:*",
     "supportplans:*",
+    "support-console:*",
     "sustainability:*",
     "tag:GetResources",
     "tax:*",
