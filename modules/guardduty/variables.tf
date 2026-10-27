@@ -22,6 +22,12 @@ variable "lambda_network_logs_status" {
   description = "Whether Lambda network logs monitoring is enabled in GuardDuty."
 }
 
+variable "rds_data_risk_status" {
+  type        = bool
+  default     = false
+  description = "Whether RDS login events monitoring is enabled in GuardDuty."
+}
+
 variable "rds_login_events_status" {
   type        = bool
   default     = true
