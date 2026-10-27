@@ -25,7 +25,7 @@ variable "lambda_network_logs_status" {
 variable "rds_data_risk_status" {
   type        = bool
   default     = false
-  description = "Whether RDS login events monitoring is enabled in GuardDuty."
+  description = "Whether RDS data exfiltration and destruction monitoring is enabled in GuardDuty."
 }
 
 variable "rds_login_events_status" {
