@@ -26,6 +26,11 @@ variable "rds_data_risk_status" {
   type        = bool
   default     = true
   description = "Whether RDS data exfiltration and destruction monitoring is enabled in GuardDuty."
+
+  validation {
+    condition     = var.rds_login_events_status || !var.rds_data_risk_status
+    error_message = "The \"rds_data_risk_status\" variable can only be enabled when \"rds_login_events_status\" is enabled."
+  }
 }
 
 variable "rds_login_events_status" {
