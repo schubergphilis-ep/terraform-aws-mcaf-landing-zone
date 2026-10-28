@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [12.2.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v12.2.0...v12.2.1) (2026-10-28)
+
+
+### 🐛 Fixes
+
+* **guardduty:** bumping terraform version to match guardduty fix ([#12](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/issues/12)) ([df99bcb](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/df99bcba71d3da51d0a4f5f3c7bafd47eea39416))
+
 ## [12.2.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v12.1.0...v12.2.0) (2026-10-28)
 
 
