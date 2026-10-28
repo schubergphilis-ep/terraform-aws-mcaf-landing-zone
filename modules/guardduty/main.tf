@@ -67,6 +67,11 @@ resource "aws_guardduty_organization_configuration_feature" "rds_login_events" {
   detector_id = aws_guardduty_detector.delegated_admin.id
   name        = "RDS_LOGIN_EVENTS"
   auto_enable = var.rds_login_events_status == true ? "ALL" : "NONE"
+
+  additional_configuration {
+    name        = "RDS_DATA_RISK"
+    auto_enable = var.rds_data_risk_status == true ? "ALL" : "NONE"
+  }
 }
 
 resource "aws_guardduty_organization_configuration_feature" "s3_data_events" {

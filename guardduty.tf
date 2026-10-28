@@ -13,6 +13,7 @@ module "guardduty" {
   eks_audit_logs_status         = var.aws_guardduty.eks_audit_logs_status
   finding_publishing_frequency  = var.aws_guardduty.finding_publishing_frequency
   lambda_network_logs_status    = var.aws_guardduty.lambda_network_logs_status
+  rds_data_risk_status          = var.aws_guardduty.rds_data_risk_status
   rds_login_events_status       = var.aws_guardduty.rds_login_events_status
   s3_data_events_status         = var.aws_guardduty.s3_data_events_status
   tags                          = var.tags
