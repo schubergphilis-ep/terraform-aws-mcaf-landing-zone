@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [12.2.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v12.1.0...v12.2.0) (2026-10-28)
+
+
+### 🚀 Features
+
+* **guardduty:** manage RDS_DATA_RISK additional configuration to prevent resource replacement ([#10](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/issues/10)) ([c7aa97f](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/c7aa97ffe10d2671e227d0df4b4f1c2b9dfdbd5f))
+
 ## [12.1.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v12.0.0...v12.1.0) (2026-09-30)
 
 
