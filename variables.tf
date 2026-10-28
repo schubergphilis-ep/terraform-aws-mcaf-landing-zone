@@ -108,6 +108,7 @@ variable "aws_guardduty" {
     ebs_malware_protection_status = optional(bool, true)
     eks_audit_logs_status         = optional(bool, true)
     lambda_network_logs_status    = optional(bool, true)
+    rds_data_risk_status          = optional(bool, true)
     rds_login_events_status       = optional(bool, true)
     s3_data_events_status         = optional(bool, true)
     runtime_monitoring_status = optional(object({
