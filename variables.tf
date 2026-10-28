@@ -120,6 +120,11 @@ variable "aws_guardduty" {
   })
   default     = {}
   description = "AWS GuardDuty settings"
+
+  validation {
+    condition     = var.aws_guardduty.rds_login_events_status || !var.aws_guardduty.rds_data_risk_status
+    error_message = "The \"rds_data_risk_status\" variable can only be enabled when \"rds_login_events_status\" is enabled."
+  }
 }
 
 variable "aws_inspector" {
