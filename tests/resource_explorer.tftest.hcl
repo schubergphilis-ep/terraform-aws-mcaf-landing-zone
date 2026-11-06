@@ -181,11 +181,6 @@ run "resource_explorer_disabled_by_default" {
   }
 
   assert {
-    condition     = local.resource_explorer_baseline_settings == null
-    error_message = "The core account baselines should not create Resource Explorer indexes by default"
-  }
-
-  assert {
     condition     = length(aws_resourceexplorer2_view.organization) == 0
     error_message = "No Resource Explorer view should be created by default"
   }
@@ -210,54 +205,12 @@ run "resource_explorer_enabled" {
   }
 
   assert {
-    condition     = local.resource_explorer_baseline_settings.aggregator_region == "eu-central-1"
-    error_message = "The core account baselines should get the home region as aggregator region by default"
-  }
-
-  assert {
     condition     = aws_resourceexplorer2_view.organization[0].region == "eu-central-1"
-    error_message = "The organization view should be created in the home region by default"
+    error_message = "The organization view should be created in the home region"
   }
 
   assert {
     condition     = aws_resourceexplorer2_view.organization[0].scope == "arn:aws:organizations::012345678901:organization/o-ab1234cdef"
     error_message = "The view should be scoped to the organization"
   }
-}
-
-run "resource_explorer_custom_aggregator_region" {
-  module {
-    source = "./"
-  }
-
-  variables {
-    aws_resource_explorer = {
-      enabled           = true
-      aggregator_region = "us-east-1"
-    }
-  }
-
-  command = plan
-
-  assert {
-    condition     = local.resource_explorer_baseline_settings.aggregator_region == "us-east-1" && aws_resourceexplorer2_view.organization[0].region == "us-east-1"
-    error_message = "The core account baselines and the view should use the configured aggregator region"
-  }
-}
-
-run "resource_explorer_invalid_aggregator_region" {
-  module {
-    source = "./"
-  }
-
-  variables {
-    aws_resource_explorer = {
-      enabled           = true
-      aggregator_region = "ap-southeast-2"
-    }
-  }
-
-  command = plan
-
-  expect_failures = [var.aws_resource_explorer]
 }

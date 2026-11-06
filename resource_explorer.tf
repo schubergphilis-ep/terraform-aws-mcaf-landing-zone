@@ -1,13 +1,3 @@
-locals {
-  resource_explorer_aggregator_region = coalesce(var.aws_resource_explorer.aggregator_region, var.regions.home_region)
-
-  // Passed to the account baselines of the core accounts, which create a local index in every
-  // governed region and the aggregator index in the aggregator region.
-  resource_explorer_baseline_settings = var.aws_resource_explorer.enabled ? {
-    aggregator_region = local.resource_explorer_aggregator_region
-  } : null
-}
-
 // AWS Resource Explorer - Management account configuration
 // Trusted access for resource-explorer-2.amazonaws.com must already be enabled in AWS Organizations,
 // as the organization (and its service access principals) is not managed by this module.
@@ -20,14 +10,15 @@ resource "aws_organizations_delegated_administrator" "resource_explorer" {
 
 // AWS Resource Explorer - Audit account (delegated administrator) configuration
 // The organization-scoped view returns resources from the aggregator indexes of all accounts
-// in the organization that have one in the same region.
+// in the organization that have one in the same region. The account baselines put the aggregator
+// index in their provider region, which must be the home region.
 // https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-service-multi-account.html
 resource "aws_resourceexplorer2_view" "organization" {
   count = var.aws_resource_explorer.enabled ? 1 : 0
 
   provider = aws.audit
 
-  region       = local.resource_explorer_aggregator_region
+  region       = var.regions.home_region
   name         = "mcaf-landing-zone-organization"
   default_view = true
   scope        = data.aws_organizations_organization.default.arn
