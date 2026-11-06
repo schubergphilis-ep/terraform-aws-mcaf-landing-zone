@@ -151,12 +151,10 @@ variable "aws_required_tags" {
   }
 }
 
-variable "aws_resource_explorer" {
-  type = object({
-    enabled = optional(bool, false)
-  })
-  default     = {}
-  description = "AWS Resource Explorer multi-account search settings. When enabled, the audit account is registered as the delegated administrator and gets an organization-wide view in the home region, and the core accounts get Resource Explorer indexes with the aggregator index in the home region. Trusted access for `resource-explorer-2.amazonaws.com` must be enabled in AWS Organizations beforehand."
+variable "aws_resource_explorer_enabled" {
+  type        = bool
+  default     = false
+  description = "Enable AWS Resource Explorer multi-account search, with the audit account as delegated administrator and an organization-wide view in the home region."
 }
 
 variable "aws_security_hub" {

@@ -192,9 +192,7 @@ run "resource_explorer_enabled" {
   }
 
   variables {
-    aws_resource_explorer = {
-      enabled = true
-    }
+    aws_resource_explorer_enabled = true
   }
 
   command = plan

@@ -45,5 +45,5 @@ output "monitor_iam_activity_sns_topic_arn" {
 
 output "resource_explorer_organization_view_arn" {
   description = "ARN of the organization-wide AWS Resource Explorer view in the audit account"
-  value       = var.aws_resource_explorer.enabled ? aws_resourceexplorer2_view.organization[0].arn : null
+  value       = var.aws_resource_explorer_enabled ? aws_resourceexplorer2_view.organization[0].arn : null
 }

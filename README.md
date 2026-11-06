@@ -189,27 +189,10 @@ This module enables [IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest
 
 ### AWS Resource Explorer
 
-This module supports [multi-account search with AWS Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-service-multi-account.html), with the `audit` account registered as the delegated administrator. The feature is controlled via the `aws_resource_explorer` variable and is disabled by default.
-
-When enabled, the module creates:
-
-- **Management account**: the `audit` account is registered as delegated administrator for `resource-explorer-2.amazonaws.com`.
-- **Audit account**: an organization-scoped default view in the `home_region`. The ARN of this view is exposed via the `resource_explorer_organization_view_arn` output.
-- **Core accounts** (management, audit and logging): a Resource Explorer index in every governed region, with the index in the `home_region` promoted to the aggregator index. These indexes are created through [mcaf-account-baseline](https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline).
-
-Example:
-
-```hcl
-aws_resource_explorer = {
-  enabled = true
-}
-```
+This module supports [multi-account search with AWS Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-service-multi-account.html), controlled via the `aws_resource_explorer_enabled` variable (disabled by default). When enabled, the `audit` account is registered as delegated administrator and gets an organization-wide view in the `home_region`, exposed via the `resource_explorer_organization_view_arn` output. The core accounts get their indexes through [mcaf-account-baseline](https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline).
 
 > [!NOTE]
-> This module does not manage the AWS Organization itself, so [trusted access for Resource Explorer](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-resource-explorer.html) must be enabled beforehand by adding `resource-explorer-2.amazonaws.com` to the service access principals of your organization (included by default in [mcaf-organization](https://github.com/schubergphilis/terraform-aws-mcaf-organization)). No SCP changes are needed, as `resource-explorer-2:*` is already exempted in the allowed regions SCP.
-
-> [!IMPORTANT]
-> The organization view only returns resources from accounts that have an aggregator index in the `home_region`. Enable Resource Explorer in the member accounts by setting `aws_resource_explorer_enabled = true` on their [mcaf-account-baseline](https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline), which puts the aggregator index in its provider region, so make sure that is the `home_region`.
+> [Trusted access for Resource Explorer](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-resource-explorer.html) must be enabled in AWS Organizations beforehand. This is included by default in [mcaf-organization](https://github.com/schubergphilis/terraform-aws-mcaf-organization).
 
 ## AWS KMS
 
@@ -610,7 +593,7 @@ module "landing_zone" {
 | <a name="input_aws_guardduty"></a> [aws\_guardduty](#input\_aws\_guardduty) | AWS GuardDuty settings | <pre>object({<br/>    enabled                       = optional(bool, true)<br/>    finding_publishing_frequency  = optional(string, "FIFTEEN_MINUTES")<br/>    ebs_malware_protection_status = optional(bool, true)<br/>    eks_audit_logs_status         = optional(bool, true)<br/>    lambda_network_logs_status    = optional(bool, true)<br/>    rds_data_risk_status          = optional(bool, true)<br/>    rds_login_events_status       = optional(bool, true)<br/>    s3_data_events_status         = optional(bool, true)<br/>    runtime_monitoring_status = optional(object({<br/>      enabled                             = optional(bool, true)<br/>      eks_addon_management_status         = optional(bool, true)<br/>      ecs_fargate_agent_management_status = optional(bool, true)<br/>      ec2_agent_management_status         = optional(bool, true)<br/>    }), {})<br/>  })</pre> | `{}` | no |
 | <a name="input_aws_inspector"></a> [aws\_inspector](#input\_aws\_inspector) | AWS Inspector settings, at least one of the scan options must be enabled | <pre>object({<br/>    enabled                     = optional(bool, false)<br/>    enable_scan_ec2             = optional(bool, true)<br/>    enable_scan_ecr             = optional(bool, true)<br/>    enable_scan_lambda          = optional(bool, true)<br/>    enable_scan_lambda_code     = optional(bool, true)<br/>    excluded_member_account_ids = optional(list(string), [])<br/>    resource_create_timeout     = optional(string, "15m")<br/>  })</pre> | `{}` | no |
 | <a name="input_aws_required_tags"></a> [aws\_required\_tags](#input\_aws\_required\_tags) | AWS Required tags settings | <pre>map(list(object({<br/>    name         = string<br/>    values       = optional(list(string))<br/>    enforced_for = optional(list(string))<br/>  })))</pre> | `null` | no |
-| <a name="input_aws_resource_explorer"></a> [aws\_resource\_explorer](#input\_aws\_resource\_explorer) | AWS Resource Explorer multi-account search settings. When enabled, the audit account is registered as the delegated administrator and gets an organization-wide view in the home region, and the core accounts get Resource Explorer indexes with the aggregator index in the home region. Trusted access for `resource-explorer-2.amazonaws.com` must be enabled in AWS Organizations beforehand. | <pre>object({<br/>    enabled = optional(bool, false)<br/>  })</pre> | `{}` | no |
+| <a name="input_aws_resource_explorer_enabled"></a> [aws\_resource\_explorer\_enabled](#input\_aws\_resource\_explorer\_enabled) | Enable AWS Resource Explorer multi-account search, with the audit account as delegated administrator and an organization-wide view in the home region. | `bool` | `false` | no |
 | <a name="input_aws_security_hub"></a> [aws\_security\_hub](#input\_aws\_security\_hub) | AWS Security Hub settings | <pre>object({<br/>    aggregator_linking_mode      = optional(string, "SPECIFIED_REGIONS")<br/>    auto_enable_controls         = optional(bool, true)<br/>    control_finding_generator    = optional(string, "SECURITY_CONTROL")<br/>    create_cis_metric_filters    = optional(bool, true)<br/>    disabled_control_identifiers = optional(list(string), null)<br/>    enabled_control_identifiers  = optional(list(string), null)<br/>    product_arns                 = optional(list(string), [])<br/>    standards_arns               = optional(list(string), null)<br/>  })</pre> | `{}` | no |
 | <a name="input_aws_security_hub_sns_subscription"></a> [aws\_security\_hub\_sns\_subscription](#input\_aws\_security\_hub\_sns\_subscription) | Subscription options for the LandingZone-SecurityHubFindings SNS topic | <pre>map(object({<br/>    endpoint = string<br/>    protocol = string<br/>  }))</pre> | `{}` | no |
 | <a name="input_aws_service_control_policies"></a> [aws\_service\_control\_policies](#input\_aws\_service\_control\_policies) | AWS SCP's parameters to disable required/denied policies, set a list of allowed AWS regions, and set principals that are exempt from the restriction | <pre>object({<br/>    aws_deny_disabling_security_hub = optional(bool, true)<br/>    aws_deny_leaving_org            = optional(bool, true)<br/>    aws_deny_root_user_ous          = optional(list(string), [])<br/>    aws_require_imdsv2              = optional(bool, true)<br/>    principal_exceptions            = optional(list(string), [])<br/>  })</pre> | `{}` | no |
