@@ -151,6 +151,20 @@ variable "aws_required_tags" {
   }
 }
 
+variable "aws_resource_explorer" {
+  type = object({
+    enabled           = optional(bool, false)
+    aggregator_region = optional(string)
+  })
+  default     = {}
+  description = "AWS Resource Explorer multi-account search settings. When enabled, the audit account is registered as the delegated administrator and gets the aggregator index and an organization-wide view. The `aggregator_region` defaults to the `home_region` and must be a governed region. Trusted access for `resource-explorer-2.amazonaws.com` must be enabled in AWS Organizations beforehand."
+
+  validation {
+    condition     = var.aws_resource_explorer.aggregator_region == null || contains(concat([var.regions.home_region], var.regions.linked_regions), var.aws_resource_explorer.aggregator_region)
+    error_message = "The 'aggregator_region' must be one of the governed regions ('home_region' or 'linked_regions')."
+  }
+}
+
 variable "aws_security_hub" {
   type = object({
     aggregator_linking_mode      = optional(string, "SPECIFIED_REGIONS")

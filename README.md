@@ -187,6 +187,31 @@ This module enables [IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest
 > [!NOTE]
 > Organization analyzers require the `AWSServiceRoleForAccessAnalyzer` service-linked role to exist in the management account. This module creates it automatically; if the role already exists, set `create_service_linked_role = false` to avoid an "already exists" error.
 
+### AWS Resource Explorer
+
+This module supports [multi-account search with AWS Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-service-multi-account.html), with the `audit` account registered as the delegated administrator. The feature is controlled via the `aws_resource_explorer` variable and is disabled by default.
+
+When enabled, the module creates:
+
+- **Management account**: the `audit` account is registered as delegated administrator for `resource-explorer-2.amazonaws.com`.
+- **Audit account**: an organization-scoped default view in the `aggregator_region` (defaults to the `home_region`). The ARN of this view is exposed via the `resource_explorer_organization_view_arn` output.
+- **Core accounts** (management, audit and logging): a Resource Explorer index in every governed region, with the index in the `aggregator_region` promoted to the aggregator index. These indexes are created through [mcaf-account-baseline](https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline).
+
+Example:
+
+```hcl
+aws_resource_explorer = {
+  enabled           = true
+  aggregator_region = "eu-central-1"
+}
+```
+
+> [!NOTE]
+> This module does not manage the AWS Organization itself, so [trusted access for Resource Explorer](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-resource-explorer.html) must be enabled beforehand by adding `resource-explorer-2.amazonaws.com` to the service access principals of your organization (included by default in [mcaf-organization](https://github.com/schubergphilis/terraform-aws-mcaf-organization)). The `aggregator_region` must be one of the governed regions (`home_region` or `linked_regions`). No SCP changes are needed, as `resource-explorer-2:*` is already exempted in the allowed regions SCP.
+
+> [!IMPORTANT]
+> The organization view only returns resources from accounts that have an aggregator index in the same region as the view. Enable Resource Explorer in the member accounts by setting `aws_resource_explorer = { aggregator_region = "<aggregator_region>" }` on their [mcaf-account-baseline](https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline), using the same `aggregator_region` as configured here. Trusted access is enabled by default in [mcaf-organization](https://github.com/schubergphilis/terraform-aws-mcaf-organization).
+
 ## AWS KMS
 
 The module creates 3 AWS KMS keys, one for the management account, one for the audit account, and one for the log archive account. We recommend to further scope down the AWS KMS key policy in the management account by providing a secure policy using `kms_key_policy`. The default policy "Base Permissions" can be overwritten and should be limited to the root account only, for example by using the statement below:
@@ -504,9 +529,9 @@ module "landing_zone" {
 | <a name="module_kms_key"></a> [kms\_key](#module\_kms\_key) | schubergphilis-ep/mcaf-kms/aws | ~> 1.0.0 |
 | <a name="module_kms_key_audit"></a> [kms\_key\_audit](#module\_kms\_key\_audit) | schubergphilis-ep/mcaf-kms/aws | ~> 1.0.0 |
 | <a name="module_kms_key_logging"></a> [kms\_key\_logging](#module\_kms\_key\_logging) | schubergphilis-ep/mcaf-kms/aws | ~> 1.0.0 |
-| <a name="module_security_baseline_audit"></a> [security\_baseline\_audit](#module\_security\_baseline\_audit) | schubergphilis-ep/mcaf-account-baseline/aws | ~> 8.0.0 |
-| <a name="module_security_baseline_logging"></a> [security\_baseline\_logging](#module\_security\_baseline\_logging) | schubergphilis-ep/mcaf-account-baseline/aws | ~> 8.0.0 |
-| <a name="module_security_baseline_master"></a> [security\_baseline\_master](#module\_security\_baseline\_master) | schubergphilis-ep/mcaf-account-baseline/aws | ~> 8.0.0 |
+| <a name="module_security_baseline_audit"></a> [security\_baseline\_audit](#module\_security\_baseline\_audit) | schubergphilis-ep/mcaf-account-baseline/aws | ~> 8.1.0 |
+| <a name="module_security_baseline_logging"></a> [security\_baseline\_logging](#module\_security\_baseline\_logging) | schubergphilis-ep/mcaf-account-baseline/aws | ~> 8.1.0 |
+| <a name="module_security_baseline_master"></a> [security\_baseline\_master](#module\_security\_baseline\_master) | schubergphilis-ep/mcaf-account-baseline/aws | ~> 8.1.0 |
 | <a name="module_ses-root-accounts-mail-alias"></a> [ses-root-accounts-mail-alias](#module\_ses-root-accounts-mail-alias) | schubergphilis-ep/mcaf-ses/aws | ~> 1.0.0 |
 | <a name="module_ses-root-accounts-mail-forward"></a> [ses-root-accounts-mail-forward](#module\_ses-root-accounts-mail-forward) | schubergphilis-ep/mcaf-ses-forwarder/aws | ~> 1.1.1 |
 | <a name="module_tag_policy_assignment"></a> [tag\_policy\_assignment](#module\_tag\_policy\_assignment) | ./modules/tag-policy-assignment | n/a |
@@ -531,6 +556,7 @@ module "landing_zone" {
 | [aws_iam_service_linked_role.access_analyzer](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_service_linked_role) | resource |
 | [aws_iam_service_linked_role.config](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_service_linked_role) | resource |
 | [aws_organizations_delegated_administrator.access_analyzer](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_delegated_administrator) | resource |
+| [aws_organizations_delegated_administrator.resource_explorer](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_delegated_administrator) | resource |
 | [aws_organizations_policy.aiservices_opt_out](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_policy) | resource |
 | [aws_organizations_policy.allowed_regions](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_policy) | resource |
 | [aws_organizations_policy.deny_root_user](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_policy) | resource |
@@ -539,6 +565,7 @@ module "landing_zone" {
 | [aws_organizations_policy_attachment.allowed_regions](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_policy_attachment) | resource |
 | [aws_organizations_policy_attachment.deny_root_user](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_policy_attachment) | resource |
 | [aws_organizations_policy_attachment.lz_root_policies](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_policy_attachment) | resource |
+| [aws_resourceexplorer2_view.organization](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/resourceexplorer2_view) | resource |
 | [aws_securityhub_account.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/securityhub_account) | resource |
 | [aws_securityhub_account.management](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/securityhub_account) | resource |
 | [aws_securityhub_configuration_policy.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/securityhub_configuration_policy) | resource |
@@ -584,6 +611,7 @@ module "landing_zone" {
 | <a name="input_aws_guardduty"></a> [aws\_guardduty](#input\_aws\_guardduty) | AWS GuardDuty settings | <pre>object({<br/>    enabled                       = optional(bool, true)<br/>    finding_publishing_frequency  = optional(string, "FIFTEEN_MINUTES")<br/>    ebs_malware_protection_status = optional(bool, true)<br/>    eks_audit_logs_status         = optional(bool, true)<br/>    lambda_network_logs_status    = optional(bool, true)<br/>    rds_data_risk_status          = optional(bool, true)<br/>    rds_login_events_status       = optional(bool, true)<br/>    s3_data_events_status         = optional(bool, true)<br/>    runtime_monitoring_status = optional(object({<br/>      enabled                             = optional(bool, true)<br/>      eks_addon_management_status         = optional(bool, true)<br/>      ecs_fargate_agent_management_status = optional(bool, true)<br/>      ec2_agent_management_status         = optional(bool, true)<br/>    }), {})<br/>  })</pre> | `{}` | no |
 | <a name="input_aws_inspector"></a> [aws\_inspector](#input\_aws\_inspector) | AWS Inspector settings, at least one of the scan options must be enabled | <pre>object({<br/>    enabled                     = optional(bool, false)<br/>    enable_scan_ec2             = optional(bool, true)<br/>    enable_scan_ecr             = optional(bool, true)<br/>    enable_scan_lambda          = optional(bool, true)<br/>    enable_scan_lambda_code     = optional(bool, true)<br/>    excluded_member_account_ids = optional(list(string), [])<br/>    resource_create_timeout     = optional(string, "15m")<br/>  })</pre> | `{}` | no |
 | <a name="input_aws_required_tags"></a> [aws\_required\_tags](#input\_aws\_required\_tags) | AWS Required tags settings | <pre>map(list(object({<br/>    name         = string<br/>    values       = optional(list(string))<br/>    enforced_for = optional(list(string))<br/>  })))</pre> | `null` | no |
+| <a name="input_aws_resource_explorer"></a> [aws\_resource\_explorer](#input\_aws\_resource\_explorer) | AWS Resource Explorer multi-account search settings. When enabled, the audit account is registered as the delegated administrator and gets the aggregator index and an organization-wide view. The `aggregator_region` defaults to the `home_region` and must be a governed region. Trusted access for `resource-explorer-2.amazonaws.com` must be enabled in AWS Organizations beforehand. | <pre>object({<br/>    enabled           = optional(bool, false)<br/>    aggregator_region = optional(string)<br/>  })</pre> | `{}` | no |
 | <a name="input_aws_security_hub"></a> [aws\_security\_hub](#input\_aws\_security\_hub) | AWS Security Hub settings | <pre>object({<br/>    aggregator_linking_mode      = optional(string, "SPECIFIED_REGIONS")<br/>    auto_enable_controls         = optional(bool, true)<br/>    control_finding_generator    = optional(string, "SECURITY_CONTROL")<br/>    create_cis_metric_filters    = optional(bool, true)<br/>    disabled_control_identifiers = optional(list(string), null)<br/>    enabled_control_identifiers  = optional(list(string), null)<br/>    product_arns                 = optional(list(string), [])<br/>    standards_arns               = optional(list(string), null)<br/>  })</pre> | `{}` | no |
 | <a name="input_aws_security_hub_sns_subscription"></a> [aws\_security\_hub\_sns\_subscription](#input\_aws\_security\_hub\_sns\_subscription) | Subscription options for the LandingZone-SecurityHubFindings SNS topic | <pre>map(object({<br/>    endpoint = string<br/>    protocol = string<br/>  }))</pre> | `{}` | no |
 | <a name="input_aws_service_control_policies"></a> [aws\_service\_control\_policies](#input\_aws\_service\_control\_policies) | AWS SCP's parameters to disable required/denied policies, set a list of allowed AWS regions, and set principals that are exempt from the restriction | <pre>object({<br/>    aws_deny_disabling_security_hub = optional(bool, true)<br/>    aws_deny_leaving_org            = optional(bool, true)<br/>    aws_deny_root_user_ous          = optional(list(string), [])<br/>    aws_require_imdsv2              = optional(bool, true)<br/>    principal_exceptions            = optional(list(string), [])<br/>  })</pre> | `{}` | no |
@@ -612,6 +640,7 @@ module "landing_zone" {
 | <a name="output_kms_key_ids_logging_account"></a> [kms\_key\_ids\_logging\_account](#output\_kms\_key\_ids\_logging\_account) | Map of region => ID of KMS key for the core logging account |
 | <a name="output_kms_key_ids_management_account"></a> [kms\_key\_ids\_management\_account](#output\_kms\_key\_ids\_management\_account) | Map of region => ID of KMS key for the core management account |
 | <a name="output_monitor_iam_activity_sns_topic_arn"></a> [monitor\_iam\_activity\_sns\_topic\_arn](#output\_monitor\_iam\_activity\_sns\_topic\_arn) | ARN of the SNS Topic in the audit account for IAM activity monitoring notifications |
+| <a name="output_resource_explorer_organization_view_arn"></a> [resource\_explorer\_organization\_view\_arn](#output\_resource\_explorer\_organization\_view\_arn) | ARN of the organization-wide AWS Resource Explorer view in the audit account |
 <!-- END_TF_DOCS -->
 
 ## License
