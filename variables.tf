@@ -151,6 +151,12 @@ variable "aws_required_tags" {
   }
 }
 
+variable "aws_resource_explorer_enabled" {
+  type        = bool
+  default     = false
+  description = "Enable AWS Resource Explorer multi-account search, with the audit account as delegated administrator and an organization-wide view in the home region."
+}
+
 variable "aws_security_hub" {
   type = object({
     aggregator_linking_mode      = optional(string, "SPECIFIED_REGIONS")

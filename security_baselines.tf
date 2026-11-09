@@ -17,7 +17,7 @@ locals {
 
 module "security_baseline_master" {
   source  = "schubergphilis-ep/mcaf-account-baseline/aws"
-  version = "~> 8.0.0"
+  version = "~> 8.1.0"
 
   extra_regions_to_baseline                   = local.all_governed_regions
   account_password_policy                     = var.aws_core_accounts_baseline_settings.account_password_policy
@@ -25,6 +25,7 @@ module "security_baseline_master" {
   aws_ebs_snapshot_block_public_access_state  = var.aws_core_accounts_baseline_settings.ebs_snapshot_block_public_access_state
   aws_ec2_image_block_public_access_state     = var.aws_core_accounts_baseline_settings.ec2_image_block_public_access_state
   aws_kms_key_arns                            = local.kms_key_arns_management
+  aws_resource_explorer_enabled               = var.aws_resource_explorer_enabled
   aws_ssm_documents_public_sharing_permission = var.aws_core_accounts_baseline_settings.ssm_documents_public_sharing_permission
   enable_additional_eu_regions                = var.aws_core_accounts_baseline_settings.enable_additional_eu_regions
   tags                                        = var.tags
@@ -34,7 +35,7 @@ module "security_baseline_audit" {
   providers = { aws = aws.audit }
 
   source  = "schubergphilis-ep/mcaf-account-baseline/aws"
-  version = "~> 8.0.0"
+  version = "~> 8.1.0"
 
   extra_regions_to_baseline                   = local.all_governed_regions
   account_password_policy                     = var.aws_core_accounts_baseline_settings.account_password_policy
@@ -42,6 +43,7 @@ module "security_baseline_audit" {
   aws_ebs_snapshot_block_public_access_state  = var.aws_core_accounts_baseline_settings.ebs_snapshot_block_public_access_state
   aws_ec2_image_block_public_access_state     = var.aws_core_accounts_baseline_settings.ec2_image_block_public_access_state
   aws_kms_key_arns                            = local.kms_key_arns_audit
+  aws_resource_explorer_enabled               = var.aws_resource_explorer_enabled
   aws_ssm_documents_public_sharing_permission = var.aws_core_accounts_baseline_settings.ssm_documents_public_sharing_permission
   enable_additional_eu_regions                = var.aws_core_accounts_baseline_settings.enable_additional_eu_regions
   tags                                        = var.tags
@@ -51,7 +53,7 @@ module "security_baseline_logging" {
   providers = { aws = aws.logging }
 
   source  = "schubergphilis-ep/mcaf-account-baseline/aws"
-  version = "~> 8.0.0"
+  version = "~> 8.1.0"
 
   extra_regions_to_baseline                   = local.all_governed_regions
   account_password_policy                     = var.aws_core_accounts_baseline_settings.account_password_policy
@@ -59,6 +61,7 @@ module "security_baseline_logging" {
   aws_ebs_snapshot_block_public_access_state  = var.aws_core_accounts_baseline_settings.ebs_snapshot_block_public_access_state
   aws_ec2_image_block_public_access_state     = var.aws_core_accounts_baseline_settings.ec2_image_block_public_access_state
   aws_kms_key_arns                            = local.kms_key_arns_logging
+  aws_resource_explorer_enabled               = var.aws_resource_explorer_enabled
   aws_ssm_documents_public_sharing_permission = var.aws_core_accounts_baseline_settings.ssm_documents_public_sharing_permission
   enable_additional_eu_regions                = var.aws_core_accounts_baseline_settings.enable_additional_eu_regions
   tags                                        = var.tags

@@ -42,3 +42,8 @@ output "monitor_iam_activity_sns_topic_arn" {
   description = "ARN of the SNS Topic in the audit account for IAM activity monitoring notifications"
   value       = var.monitor_iam_activity ? aws_sns_topic.iam_activity[0].arn : ""
 }
+
+output "resource_explorer_organization_view_arn" {
+  description = "ARN of the organization-wide AWS Resource Explorer view in the audit account"
+  value       = var.aws_resource_explorer_enabled ? aws_resourceexplorer2_view.organization[0].arn : null
+}
