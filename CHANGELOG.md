@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [12.3.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v12.2.1...v12.3.0) (2026-11-09)
+
+
+### 🚀 Features
+
+* add AWS Resource Explorer multi-account search ([#14](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/issues/14)) ([95fd6eb](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/95fd6ebd6776dc5345d59aa23790cb18ce061e9f))
+
 ## [12.2.1](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v12.2.0...v12.2.1) (2026-10-28)
 
 
