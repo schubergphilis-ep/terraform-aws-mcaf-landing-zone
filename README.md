@@ -308,10 +308,6 @@ Example:
   }
 ```
 
-### Datadog Integration
-
-This module no longer manages a Datadog integration. Integrate Datadog with the management, audit and logging accounts outside of this module by calling the [mcaf-datadog](https://registry.terraform.io/modules/schubergphilis-ep/mcaf-datadog/aws) module (v1.x) directly from your own configuration. If you used the `datadog` variable in an earlier version, follow the [upgrade guide](UPGRADING.md#upgrading-to-v1300) to migrate the existing integration.
-
 ### Monitoring IAM Activity
 
 By default, this module monitors and notifies activities performed by the `root` user of all core accounts and AWS SSO Roles. All notifications will be sent to the SNS Topic `LandingZone-IAMActivity` in the `audit` account.
@@ -456,7 +452,7 @@ module "landing_zone" {
   ...
 
   aws_config_sns_subscription = {
-    endpoint = "https://app.datadoghq.com/intake/webhook/sns?api_key=qwerty0123456789"
+    endpoint = "https://example.com/webhook/sns"
     protocol = "https"
   }
 }
