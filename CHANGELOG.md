@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [13.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v12.3.0...v13.0.0) (2026-11-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* the `datadog` and `datadog_excluded_regions` variables, the `datadog_master`, `datadog_audit` and `datadog_logging` modules and the `datadog/datadog` provider requirement have been removed. Define the mcaf-datadog modules in your own configuration and add `moved` blocks before applying, otherwise Terraform destroys the integration.
+
+### 🚀 Features
+
+* remove the Datadog integration ([#16](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/issues/16)) ([c5008fa](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/c5008fade8f19dffb2888372f53f6d247b0e2d17))
+
 ## [12.3.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v12.2.1...v12.3.0) (2026-11-09)
 
 
