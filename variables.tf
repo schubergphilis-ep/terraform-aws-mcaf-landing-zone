@@ -240,48 +240,6 @@ variable "control_tower_account_ids" {
   description = "Control Tower core account IDs"
 }
 
-variable "datadog" {
-  type = object({
-    api_key                              = optional(string, null)
-    api_key_name_prefix                  = optional(string, "aws-landing-zone-")
-    create_api_key                       = optional(bool, false)
-    cspm_resource_collection_enabled     = optional(bool, false)
-    enable_integration                   = bool
-    extended_resource_collection_enabled = optional(bool, false)
-    install_log_forwarder                = optional(bool, false)
-    log_collection_services              = optional(list(string), [])
-    log_forwarder_version                = optional(string)
-    metric_tag_filters                   = optional(map(string), {})
-    namespace_rules                      = optional(list(string), [])
-    site_url                             = string
-  })
-  default     = null
-  description = "Datadog integration options for the core accounts"
-
-  validation {
-    condition = (
-      # Either Datadog integration config is not supplied = disabled
-      var.datadog == null ||
-      # Or it's directly disabled
-      try(var.datadog.enable_integration, false) == false ||
-      # Or it's enabled but the log forwarder is disabled (API key not needed)
-      (try(var.datadog.enable_integration, false) && try(var.datadog.install_log_forwarder, false) == false) ||
-      # Or the API key is supplied
-      try(length(var.datadog.api_key), 0) > 0 ||
-      # Or the API key will be created
-      try(var.datadog.create_api_key, false)
-    )
-
-    error_message = "If Datadog integration is enabled, either an API key must be provided or the 'create_api_key' option must be set to true."
-  }
-}
-
-variable "datadog_excluded_regions" {
-  type        = list(string)
-  description = "List of regions where metrics collection will be disabled."
-  default     = []
-}
-
 variable "kms_key_policies_management_by_region" {
   type        = map(list(string))
   default     = {}

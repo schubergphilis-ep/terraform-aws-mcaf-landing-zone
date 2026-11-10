@@ -2,6 +2,115 @@
 
 This document captures required refactoring on your part when upgrading to a module version that contains breaking changes.
 
+## Upgrading to v13.0.0
+
+### Key Changes v13.0.0
+
+#### Datadog integration removed
+
+This module no longer integrates Datadog with the core accounts. Integrating Datadog with the management, audit and logging accounts should be implemented outside of this module, by calling the [mcaf-datadog](https://registry.terraform.io/modules/schubergphilis-ep/mcaf-datadog/aws) module directly from your own configuration.
+
+The following have been removed:
+
+- `module.datadog_master`, `module.datadog_audit` and `module.datadog_logging`
+- The `datadog` and `datadog_excluded_regions` variables
+- The `datadog/datadog` provider requirement
+
+> [!WARNING]
+> The mcaf-datadog versions used by this module (`~> 0.9.0`) are deprecated. When using Datadog, it is recommended to migrate to v1.x of mcaf-datadog and perform the migration as described in the [mcaf-datadog upgrading guide](https://github.com/schubergphilis-ep/terraform-aws-mcaf-datadog/blob/main/UPGRADING.md#upgrading-to-v100).
+
+> [!IMPORTANT]
+> If you use the Datadog integration, define the mcaf-datadog modules in your own configuration and add `moved` blocks **before** applying this version, as described in [If you want to keep the Datadog integration](#if-you-want-to-keep-the-datadog-integration). Otherwise Terraform destroys the integration in the management, audit and logging accounts.
+
+### Variables v13.0.0
+
+The following variables have been removed:
+
+- `datadog`
+- `datadog_excluded_regions`
+
+### How to upgrade v13.0.0
+
+#### If you did not use the Datadog integration
+
+1. Remove the `datadog` and `datadog_excluded_regions` arguments from your module call, if present.
+2. If you only configured the `datadog` provider for this module, remove the `provider "datadog"` block and the `datadog` entry in `required_providers` from your root module.
+3. Run `terraform init -upgrade` and `terraform plan`, and confirm there are no unexpected changes.
+
+#### If you want to keep the Datadog integration
+
+Move the existing integration into your own configuration, so it keeps running without being recreated. The steps below assume the module call is named `landing_zone`; adjust the addresses to match your configuration.
+
+1. Remove the `datadog` and `datadog_excluded_regions` arguments from your module call, and keep the `datadog` provider configured in your root module.
+2. Add a mcaf-datadog module call per core account, using the same version this module used (`~> 0.9.0`) and the values you previously passed to the `datadog` variable:
+
+   ```hcl
+   module "datadog_management" {
+     source  = "schubergphilis-ep/mcaf-datadog/aws"
+     version = "~> 0.9.0"
+
+     api_key               = var.datadog_api_key
+     excluded_regions      = [] # previously `datadog_excluded_regions`
+     install_log_forwarder = true
+     site_url              = "datadoghq.eu"
+     tags                  = var.tags
+   }
+
+   module "datadog_audit" {
+     providers = { aws = aws.audit }
+
+     source  = "schubergphilis-ep/mcaf-datadog/aws"
+     version = "~> 0.9.0"
+
+     # Same inputs as module.datadog_management
+   }
+
+   module "datadog_logging" {
+     providers = { aws = aws.logging }
+
+     source  = "schubergphilis-ep/mcaf-datadog/aws"
+     version = "~> 0.9.0"
+
+     # Same inputs as module.datadog_management
+   }
+   ```
+
+   Every attribute of the old `datadog` variable maps to a mcaf-datadog input with the same name, except:
+
+   - `enable_integration`: no longer needed, the module call itself enables the integration.
+   - `api_key_name_prefix`: when `create_api_key = true`, set `api_key_name = "<prefix><account ID>"` (the prefix defaulted to `aws-landing-zone-`) so the existing API keys are not replaced.
+   - `datadog_excluded_regions`: pass it as `excluded_regions`.
+
+3. Add `moved` blocks to move the integration out of this module:
+
+   ```hcl
+   moved {
+     from = module.landing_zone.module.datadog_master[0]
+     to   = module.datadog_management
+   }
+
+   moved {
+     from = module.landing_zone.module.datadog_audit[0]
+     to   = module.datadog_audit
+   }
+
+   moved {
+     from = module.landing_zone.module.datadog_logging[0]
+     to   = module.datadog_logging
+   }
+   ```
+
+4. Run `terraform init -upgrade` and `terraform plan`. The plan should only show the Datadog resources moving to their new addresses. If it shows other changes, align the inputs of your module calls with the values you previously passed to this module.
+5. Apply the plan.
+6. Upgrade your module calls to mcaf-datadog v1.x by following the [mcaf-datadog upgrading guide](https://github.com/schubergphilis-ep/terraform-aws-mcaf-datadog/blob/main/UPGRADING.md#upgrading-to-v100). Use your own module addresses (for example `module.datadog_management`) wherever that guide uses `module.datadog`, and replace `excluded_regions` with its inverse, `included_regions`.
+
+#### If you want to remove the Datadog integration
+
+1. Remove the `datadog` and `datadog_excluded_regions` arguments from your module call, and keep the `datadog` provider configured in your root module: Terraform needs it to destroy the Datadog resources.
+2. Run `terraform init -upgrade` and `terraform plan`, and confirm the plan only destroys the Datadog integration resources.
+3. Apply the plan.
+4. If you don't use Datadog anywhere else, remove the `provider "datadog"` block and the `datadog` entry in `required_providers` from your root module.
+
 ## Upgrading to v11.0.0
 
 ### Key Changes v11.0.0
