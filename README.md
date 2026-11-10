@@ -308,26 +308,6 @@ Example:
   }
 ```
 
-### Datadog Integration
-
-This module supports an optional Datadog-AWS integration. This integration makes it easier for you to forward metrics and logs from your AWS account to Datadog.
-
-In order to enable the integration, you can pass an object to the variable `datadog` containing the following attributes:
-
-- `api_key`: sets the Datadog API key
-- `enable_integration`: set to `true` to configure the [Datadog AWS integration](https://docs.datadoghq.com/integrations/amazon_web_services/)
-- `install_log_forwarder`: set to `true` to install the [Datadog Forwarder](https://docs.datadoghq.com/serverless/forwarder/)
-
-In case you don't want to use the integration, you can configure the Datadog provider like in the example below:
-
-```hcl
-provider "datadog" {
-  validate = false
-}
-```
-
-This should prevent the provider from asking you for a Datadog API Key and allow the module to be provisioned without the integration resources.
-
 ### Monitoring IAM Activity
 
 By default, this module monitors and notifies activities performed by the `root` user of all core accounts and AWS SSO Roles. All notifications will be sent to the SNS Topic `LandingZone-IAMActivity` in the `audit` account.
@@ -472,7 +452,7 @@ module "landing_zone" {
   ...
 
   aws_config_sns_subscription = {
-    endpoint = "https://app.datadoghq.com/intake/webhook/sns?api_key=qwerty0123456789"
+    endpoint = "https://example.com/webhook/sns"
     protocol = "https"
   }
 }
@@ -485,7 +465,6 @@ module "landing_zone" {
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.70.0 |
-| <a name="requirement_datadog"></a> [datadog](#requirement\_datadog) | >= 3.39, < 4.0 |
 | <a name="requirement_mcaf"></a> [mcaf](#requirement\_mcaf) | >= 0.4.5 |
 
 ## Providers
@@ -503,9 +482,6 @@ module "landing_zone" {
 |------|--------|---------|
 | <a name="module_aws_config_recorder"></a> [aws\_config\_recorder](#module\_aws\_config\_recorder) | ./modules/aws-config-recorder | n/a |
 | <a name="module_aws_sso_permission_sets"></a> [aws\_sso\_permission\_sets](#module\_aws\_sso\_permission\_sets) | ./modules/permission-set | n/a |
-| <a name="module_datadog_audit"></a> [datadog\_audit](#module\_datadog\_audit) | schubergphilis-ep/mcaf-datadog/aws | ~> 0.9.0 |
-| <a name="module_datadog_logging"></a> [datadog\_logging](#module\_datadog\_logging) | schubergphilis-ep/mcaf-datadog/aws | ~> 0.9.0 |
-| <a name="module_datadog_master"></a> [datadog\_master](#module\_datadog\_master) | schubergphilis-ep/mcaf-datadog/aws | ~> 0.9.0 |
 | <a name="module_guardduty"></a> [guardduty](#module\_guardduty) | ./modules/guardduty | n/a |
 | <a name="module_inspector"></a> [inspector](#module\_inspector) | ./modules/inspector | n/a |
 | <a name="module_kms_key"></a> [kms\_key](#module\_kms\_key) | schubergphilis-ep/mcaf-kms/aws | ~> 1.0.0 |
@@ -598,8 +574,6 @@ module "landing_zone" {
 | <a name="input_aws_security_hub_sns_subscription"></a> [aws\_security\_hub\_sns\_subscription](#input\_aws\_security\_hub\_sns\_subscription) | Subscription options for the LandingZone-SecurityHubFindings SNS topic | <pre>map(object({<br/>    endpoint = string<br/>    protocol = string<br/>  }))</pre> | `{}` | no |
 | <a name="input_aws_service_control_policies"></a> [aws\_service\_control\_policies](#input\_aws\_service\_control\_policies) | AWS SCP's parameters to disable required/denied policies, set a list of allowed AWS regions, and set principals that are exempt from the restriction | <pre>object({<br/>    aws_deny_disabling_security_hub = optional(bool, true)<br/>    aws_deny_leaving_org            = optional(bool, true)<br/>    aws_deny_root_user_ous          = optional(list(string), [])<br/>    aws_require_imdsv2              = optional(bool, true)<br/>    principal_exceptions            = optional(list(string), [])<br/>  })</pre> | `{}` | no |
 | <a name="input_aws_sso_permission_sets"></a> [aws\_sso\_permission\_sets](#input\_aws\_sso\_permission\_sets) | Map of AWS IAM Identity Center permission sets with AWS accounts and group names that should be granted access to each account | <pre>map(object({<br/>    assignments = list(object({<br/>      account_id   = string<br/>      account_name = string<br/>      sso_groups   = list(string)<br/>    }))<br/>    customer_managed_policy_attachment = optional(object({<br/>      name = string<br/>      path = optional(string, "/")<br/>    }), null)<br/>    inline_policy                               = optional(string, null)<br/>    managed_policy_arns                         = optional(list(string), [])<br/>    permissions_boundary_aws_managed_policy_arn = optional(string, null)<br/>    permissions_boundary_customer_managed_policy = optional(object({<br/>      name = string<br/>      path = optional(string, "/")<br/>    }), null)<br/>    session_duration = optional(string, "PT4H")<br/>  }))</pre> | `{}` | no |
-| <a name="input_datadog"></a> [datadog](#input\_datadog) | Datadog integration options for the core accounts | <pre>object({<br/>    api_key                              = optional(string, null)<br/>    api_key_name_prefix                  = optional(string, "aws-landing-zone-")<br/>    create_api_key                       = optional(bool, false)<br/>    cspm_resource_collection_enabled     = optional(bool, false)<br/>    enable_integration                   = bool<br/>    extended_resource_collection_enabled = optional(bool, false)<br/>    install_log_forwarder                = optional(bool, false)<br/>    log_collection_services              = optional(list(string), [])<br/>    log_forwarder_version                = optional(string)<br/>    metric_tag_filters                   = optional(map(string), {})<br/>    namespace_rules                      = optional(list(string), [])<br/>    site_url                             = string<br/>  })</pre> | `null` | no |
-| <a name="input_datadog_excluded_regions"></a> [datadog\_excluded\_regions](#input\_datadog\_excluded\_regions) | List of regions where metrics collection will be disabled. | `list(string)` | `[]` | no |
 | <a name="input_kms_key_policies_audit_by_region"></a> [kms\_key\_policies\_audit\_by\_region](#input\_kms\_key\_policies\_audit\_by\_region) | core-audit key: region => list of extra policy JSON docs to merge. | `map(list(string))` | `{}` | no |
 | <a name="input_kms_key_policies_logging_by_region"></a> [kms\_key\_policies\_logging\_by\_region](#input\_kms\_key\_policies\_logging\_by\_region) | core-logging key: region => list of extra policy JSON docs to merge. | `map(list(string))` | `{}` | no |
 | <a name="input_kms_key_policies_management_by_region"></a> [kms\_key\_policies\_management\_by\_region](#input\_kms\_key\_policies\_management\_by\_region) | core-management key: region => list of extra policy JSON docs to merge. | `map(list(string))` | `{}` | no |

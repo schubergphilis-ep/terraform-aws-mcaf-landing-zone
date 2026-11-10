@@ -17,8 +17,6 @@ run "setup" {
   }
 }
 
-mock_provider "datadog" {}
-
 mock_provider "aws" {
   mock_data "aws_region" {
     defaults = {

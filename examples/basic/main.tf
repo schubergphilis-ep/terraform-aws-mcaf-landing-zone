@@ -27,10 +27,6 @@ provider "aws" {
   }
 }
 
-provider "datadog" {
-  validate = false
-}
-
 provider "mcaf" {
   aws {
     region = "eu-central-1"
