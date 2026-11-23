@@ -491,7 +491,7 @@ module "landing_zone" {
 | <a name="module_security_baseline_logging"></a> [security\_baseline\_logging](#module\_security\_baseline\_logging) | schubergphilis-ep/mcaf-account-baseline/aws | ~> 8.1.0 |
 | <a name="module_security_baseline_master"></a> [security\_baseline\_master](#module\_security\_baseline\_master) | schubergphilis-ep/mcaf-account-baseline/aws | ~> 8.1.0 |
 | <a name="module_ses-root-accounts-mail-alias"></a> [ses-root-accounts-mail-alias](#module\_ses-root-accounts-mail-alias) | schubergphilis-ep/mcaf-ses/aws | ~> 1.0.0 |
-| <a name="module_ses-root-accounts-mail-forward"></a> [ses-root-accounts-mail-forward](#module\_ses-root-accounts-mail-forward) | schubergphilis-ep/mcaf-ses-forwarder/aws | ~> 1.1.1 |
+| <a name="module_ses-root-accounts-mail-forward"></a> [ses-root-accounts-mail-forward](#module\_ses-root-accounts-mail-forward) | schubergphilis-ep/mcaf-ses-forwarder/aws | ~> 1.2.0 |
 | <a name="module_tag_policy_assignment"></a> [tag\_policy\_assignment](#module\_tag\_policy\_assignment) | ./modules/tag-policy-assignment | n/a |
 
 ## Resources
