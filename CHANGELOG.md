@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [13.1.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v13.0.0...v13.1.0) (2026-11-23)
+
+
+### 🚀 Features
+
+* create s3 access logging bucket for the ses-forwarder module ([#18](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/issues/18)) ([cfa04b5](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/commit/cfa04b5f401afdf7fccb8829121cda13b2201652))
+
 ## [13.0.0](https://github.com/schubergphilis-ep/terraform-aws-mcaf-landing-zone/compare/v12.3.0...v13.0.0) (2026-11-10)
 
 
