@@ -16,6 +16,9 @@ locals {
 
 data "aws_ssoadmin_instances" "default" {}
 
+# The data sources must not depend on var.module_depends_on: a depends_on on a data source defers the read to the
+# apply as soon as any resource behind the module call has a pending change, which makes the group IDs unknown and
+# forces replacement of every account assignment.
 data "aws_identitystore_group" "default" {
   for_each = toset(flatten([
     for assignment in var.assignments : assignment.sso_groups
@@ -29,10 +32,6 @@ data "aws_identitystore_group" "default" {
       attribute_value = each.value
     }
   }
-
-  depends_on = [
-    var.module_depends_on
-  ]
 }
 
 data "aws_ssoadmin_permission_set" "default" {
@@ -40,10 +39,6 @@ data "aws_ssoadmin_permission_set" "default" {
 
   instance_arn = tolist(data.aws_ssoadmin_instances.default.arns)[0]
   name         = var.name
-
-  depends_on = [
-    var.module_depends_on
-  ]
 }
 
 resource "aws_ssoadmin_permission_set" "default" {
